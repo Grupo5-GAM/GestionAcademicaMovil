@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GAM</string>
+    
+    <string name="user">Usuario</string>
+    <string name="data">Dato</string>
+    <string name="cuenta">Cuenta: </string>
+    <string name="email">Correo: </string>
+    <string name="password">Contraseña: </string>
+    <string name="remember_login">Recordar login</string>
+    <string name="auto_login">Login automatico</string>
+    <string name="loggin_in">Entrando en</string>
+	<string name="loggin_into">Entrando en TeleHealth</string>
+	<string name="invalid_user">Usuario invalido</string>
+	<string name="invalid_count">Cuenta invalida</string>
+	<string name="invalid_pass">Contraseña invalida</string>
+	<string name="invalid_data">Datos invalidos</string>
+	<string name="unregistered">Usuario no registrado</string>
+    <string name="message">Mensaje</string>
+    
+    <string name="app_registration">Registro de aplicaion</string>
+    <string name="bluetooth_not_available">Bluetooth no esta disponible</string>
+    <string name="bluetooth_health_profile_not_available">El perfil Health no esta disponible</string>
+    <string name="channel_connection">Canal de conexion</string>
+    <string name="channel_connection_desc">(dispositivos detectados automáticamente)</string>
+    <string name="connect">Conectar</string>
+    <string name="connected">CONECTAR</string>
+    <string name="connection_state">Estado de la conexion</string>
+    <string name="data_ind">Indicador de datos</string>
+    <string name="disconnect">Desconectar</string>
+    <string name="disconnected">DESCONECTAR</string>
+    <string name="empty"> </string>
+    <string name="none">ninguno...</string>
+    <string name="ok">Ok</string>
+    <string name="read_data">Leyendo datos...</string>
+    <string name="read_data_done">Hecho con la lectura de datos...</string>
+    <string name="register">Registro</string>
+    <string name="select_device">Selecciona un dispositivo</string>
+    <string name="status_create_channel">Crea estado del canal: %d</string>
+    <string name="status_destroy_channel">Destruye estado del canal: %d</string>
+    <string name="status_msg">Estado del mensaje</string>
+    <string name="status_reg">Estado del registro: %d</string>
+    <string name="status_unreg">Estado de la anulacion del registro: %d</string>
+    <string name="unregister">Anular registro</string>
+    
+    <string name="manually">Manualmente</string>
+    <string name="monitor">Monitor</string>
+    <string name="diastolica">Diastolica</string>
+    <string name="dia">DIA</string>
+    <string name="systolica">Systolica</string>
+    <string name="sys">SYS</string>
+    <string name="pulse">Pulso</string>
+    <string name="pul">PUL</string>
+    <string name="weight">Peso</string>
+    <string name="weig">PESO</string>
+    <string name="date">Fecha</string>
+    <string name="change_date">Modificar</string>
+    <string name="add">Añadir</string>
+    <string name="body_weight">Peso:</string>
+    <string name="body_fat">IMC </string>
+    <string name="fat">IMC </string>
+    <string name="oxygen">Oxigeno </string>
+    <string name="titulo_spinner">Selecciona uno</string>
+    <string name="data_tension">Sistolica, diastolica y pulso</string>
+    <string name="data_body">Peso y grasa corporal</string>
+    <string name="enter_sis">introduce la sistolica</string>
+    <string name="enter_dia">introduce la diastolica</string>
+    <string name="enter_pul">introduce el pulso</string>
+    <string name="enter_oxi">introduce el oxigeno</string>
+    <string name="enter_wei">introduce el peso</string>
+    <string name="enter_fat">introduce el IMC</string>
+    <string name="clasif">Clasificacion</string>
+    <string name="observations">Observaciones</string>
+    
+    <string name="plot">Gráfico</string>
+    
+    <string name="home">Inicio</string>
+    <string name="calendar">Calendario</string>
+    <string name="list">Lista</string>
+    
+    <string name="steps">Pasos:</string>
+    <string name="step1">1. Mídase con un dispositivo</string>
+    <string name="step2">2. Introduzca los datos manualmente</string>
+    <string name="save_data">Guardando datos en TeleHealth</string>
+    
+    <string name="yes">Si</string>
+	<string name="no">No</string>
+	<string name="confirm">¿Esta seguro?</string>
+	<string name="service_running">El servicio se esta ejecutando.</string>
+	<string name="service_started">Servicio iniciado</string>
+	<string name="send_message">Enviar mensaje</string>
+	<string name="new_message">Nuevo mensaje recibido</string>
+	<string name="send_new_message">Enviar nuevo mensaje</string>
+	<string name="message_sent">Mensaje enviado a TeleHealth</string>
+	<string name="message_list">Lista de mensajes</string>
+	<string name="clear_list">Limpiar lista</string>
+	<string name="from">De </string>
+	<string name="to">Para </string>
+	<string name="cancel">Cancelar</string>
+	<string name="send">enviar</string>
+	<string name="reply">Reenviar</string>
+	<string name="remove">Borrar</string>
+	
+	<string name="error_connector_run">No se pudo iniciar la aplicación, iDigi conector no se está ejecutando</string>
+	<string name="error_connector_con">No se pudo iniciar la aplicación, iDigi conector no esta instalado</string>
+    <string name="error_network">No se pudo iniciar la aplicación, la conexión de red no está disponible</string>
+    <string name="registration_suc">Registro realizado con éxito</string>
+	<string name="registration_fail">Registro fallido</string>
+    
+	<string name="user_change">Cambiar de usuario</string>
+	<string name="exit">Salir</string>
+	
+	<string name="monday">L</string>
+    <string name="tuesday">M</string>
+    <string name="wednesday">X</string>
+    <string name="thursday">J</string>
+    <string name="friday">V</string>
+    <string name="saturday">S</string>
+    <string name="sunday">D</string>
+    
+    <string name="tblood">Presion arterial</string>
+    <string name="tweight">Composicion corporal</string>
+    <string name="toxygen">Oxigeno en sangre</string>
+    <string name="ttemp">Temperatura</string>
+    <string name="tgluco">Glucosa</string>	
+</resources>
