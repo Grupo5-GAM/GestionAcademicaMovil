@@ -10,7 +10,8 @@ public class MatriculaActivity extends Activity {
 	
 	private  Bundle bundle;
 	private String user;
-	private TextView usuario,texto;
+	private TextView usuario,documento,nombre,apellidos,fecha_nacimiento,grado,curso,
+					fecha_matricula,forma_pago,importe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +23,16 @@ public class MatriculaActivity extends Activity {
         
         usuario=(TextView)findViewById(R.id.usuario);
         usuario.setText(user);
-        texto=(TextView)findViewById(R.id.texto);
-        texto.setText("Matricula");
+        
+        documento=(TextView)findViewById(R.id.documento);
+        nombre=(TextView)findViewById(R.id.nombre);
+        apellidos=(TextView)findViewById(R.id.apellidos);
+        fecha_nacimiento=(TextView)findViewById(R.id.fecha_nacimiento);
+        grado=(TextView)findViewById(R.id.grado);
+        curso=(TextView)findViewById(R.id.curso);
+        fecha_matricula=(TextView)findViewById(R.id.fecha_matricula);
+        forma_pago=(TextView)findViewById(R.id.forma_pago);
+        importe=(TextView)findViewById(R.id.importe);
         
         
         

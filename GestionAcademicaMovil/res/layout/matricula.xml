@@ -1,31 +1,287 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".UniAdministrationActivity" >
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:background="@color/white"
+     android:orientation="vertical">
 
     <LinearLayout 
  		android:layout_width="match_parent"
     	android:layout_height="wrap_content"
 		android:stretchColumns="1"
 		android:orientation="horizontal"
-		android:gravity="right"
 		android:background="#880015">
 	        
     	<TextView
        		android:id="@+id/usuario"
-       		android:layout_width="match_parent"
+       		android:layout_width="wrap_content"
     		android:layout_height="wrap_content"
-      	 	android:layout_marginLeft="130dp"
+      	 	android:layout_marginLeft="10dp"
       	 	android:textSize="20sp"
       	 	android:textColor="@color/white"/>
-	</LinearLayout>
+	</LinearLayout> 
 	
-    <TextView
-       		android:id="@+id/texto"
+    <LinearLayout 
+ 		android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:paddingTop="10dp">
+   		 <TextView
        		android:layout_width="match_parent"
     		android:layout_height="wrap_content"
-      	 	android:layout_marginLeft="130dp"
-      	 	android:textSize="20sp"/>
+      	 	android:layout_marginLeft="10dp"
+      	 	android:textSize="20sp"
+      	 	android:textColor="@color/black"
+      	 	android:textStyle="bold"
+      	 	android:text="Alumno"/>
+    </LinearLayout>
+    
+    <LinearLayout 
+ 			android:layout_width="match_parent"
+    		android:layout_height="1dip"
+			android:stretchColumns="1"
+			android:orientation="vertical"
+			android:background="@color/dark_gray"/>
+    
+    <LinearLayout 
+ 		android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:paddingTop="10dp">
+   		 <TextView
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:textSize="16sp"
+      	 	android:textColor="@color/black"
+      	 	android:textStyle="bold"
+      	    android:minWidth="100dp"
+      	 	android:text="Documento"/>
+   		 
+   		 <TextView
+   		    android:id="@+id/documento"
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:textSize="16sp"
+      	 	android:textColor="@color/black"
+      	 	android:text="12345678-D"/>
+    </LinearLayout>
+    
+    <LinearLayout 
+ 		android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:paddingTop="5dp">
+   		 <TextView
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:minWidth="100dp"
+      	 	android:textSize="16sp"
+      	 	android:textColor="@color/black"
+      	 	android:textStyle="bold"
+      	 	android:text="Nombre"/>
+   		 
+   		 <TextView
+   		    android:id="@+id/nombre"
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:textSize="16sp"
+      	 	android:textColor="@color/black"
+      	 	android:text="Pepe"/>
+    </LinearLayout>
+    
+     <LinearLayout 
+ 		android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:paddingTop="5dp">
+   		 <TextView
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:minWidth="100dp"
+      	 	android:textSize="16sp"
+      	 	android:textColor="@color/black"
+      	 	android:textStyle="bold"
+      	 	android:text="Apellidos"/>
+   		 
+   		 <TextView
+   		    android:id="@+id/apellidos"
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:textSize="16sp"
+      	 	android:textColor="@color/black"
+      	 	android:text="Martinez Lpoez"/>
+    </LinearLayout>
+    
+     <LinearLayout 
+ 		android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:paddingTop="5dp">
+   		 <TextView
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:minWidth="100dp"
+      	 	android:textSize="16sp"
+      	 	android:textColor="@color/black"
+      	 	android:textStyle="bold"
+      	 	android:text="Nacimiento"/>
+   		 
+   		 <TextView
+   		    android:id="@+id/fecha_nacimiento"
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:textSize="16sp"
+      	 	android:textColor="@color/black"
+      	 	android:text="10/08/1989"/>
+    </LinearLayout>
+    
+     <LinearLayout 
+ 		android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:paddingTop="15dp">
+   		 <TextView
+       		android:layout_width="match_parent"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:textSize="20sp"
+      	 	android:textColor="@color/black"
+      	 	android:textStyle="bold"
+      	 	android:text="Matricula"/>
+    </LinearLayout>
+    
+    <LinearLayout 
+ 			android:layout_width="match_parent"
+    		android:layout_height="1dip"
+			android:stretchColumns="1"
+			android:orientation="vertical"
+			android:background="@color/dark_gray"/>
+    
+    <LinearLayout 
+ 		android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:paddingTop="5dp">
+   		 <TextView
+   		    android:id="@+id/grado"
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:minWidth="100dp"
+      	 	android:textSize="16sp"
+      	 	android:textColor="@color/black"
+      	 	android:textStyle="bold"
+      	 	android:text="Grado en ingenieria informatica"/>
+    </LinearLayout>
+    
+    <LinearLayout 
+ 		android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:paddingTop="5dp">
+   		 <TextView
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:minWidth="100dp"
+      	 	android:textSize="16sp"
+      	 	android:textColor="@color/black"
+      	 	android:textStyle="bold"
+      	 	android:text="Curso academico"/>
+   		 
+   		 <TextView
+   		    android:id="@+id/curso"
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:textSize="16sp"
+      	 	android:textColor="@color/black"
+      	 	android:text="2012/2013"/>
+    </LinearLayout>
+    
+    <LinearLayout 
+ 		android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:paddingTop="5dp">
+   		 <TextView
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:minWidth="123dp"
+      	 	android:textSize="16sp"
+      	 	android:textColor="@color/black"
+      	 	android:textStyle="bold"
+      	 	android:text="Fecha matricula"/>
+   		 
+   		 <TextView
+   		    android:id="@+id/fecha_matricula"
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:textSize="16sp"
+      	 	android:textColor="@color/black"
+      	 	android:text="20/05/2012"/>
+    </LinearLayout>
+    
+    <LinearLayout 
+ 		android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:paddingTop="5dp">
+   		 <TextView
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:minWidth="123dp"
+      	 	android:textSize="16sp"
+      	 	android:textColor="@color/black"
+      	 	android:textStyle="bold"
+      	 	android:text="Forma de pago"/>
+   		 
+   		 <TextView
+   		    android:id="@+id/forma_pago"
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:textSize="16sp"
+      	 	android:textColor="@color/black"
+      	 	android:text="Domiciliacion"/>
+    </LinearLayout>
+    
+    <LinearLayout 
+ 		android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:paddingTop="5dp">
+   		 <TextView
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:minWidth="123dp"
+      	 	android:textSize="16sp"
+      	 	android:textColor="@color/black"
+      	 	android:textStyle="bold"
+      	 	android:text="Importe"/>
+   		 
+   		 <TextView
+   		    android:id="@+id/importe"
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:textSize="16sp"
+      	 	android:textColor="@color/black"
+      	 	android:text="1520,65 €"/>
+    </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>
