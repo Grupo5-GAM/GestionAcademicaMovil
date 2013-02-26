@@ -30,7 +30,7 @@ public class HorarioActivity extends TabActivity {
         mTabHost = getTabHost();
         addTabPrimero();
         addTabSegundo();
-       
+        addTabTodas();
         
     }
     
@@ -49,6 +49,16 @@ public class HorarioActivity extends TabActivity {
 	      intent.putExtra("user",bundle.getString("user"));
 	      TabSpec spec = mTabHost.newTabSpec("Tab2");
 	      spec.setIndicator("Segundo cuatrimestre");
+	      spec.setContent(intent);
+	      mTabHost.addTab(spec);
+	}
+	
+	private void addTabTodas() {
+	      Intent intent = new Intent(this, Todas.class);
+	      intent.putExtra("data",bundle.getString("data"));
+	      intent.putExtra("user",bundle.getString("user"));
+	      TabSpec spec = mTabHost.newTabSpec("Tab3");
+	      spec.setIndicator("Todas");
 	      spec.setContent(intent);
 	      mTabHost.addTab(spec);
 	}

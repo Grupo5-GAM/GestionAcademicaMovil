@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+ 
+<item android:id="@+id/Ajustes" android:title="Ajustes">
+      <!--android:icon="@drawable/tag">--></item>
+<item android:id="@+id/cambiarUsuario" android:title="Cambiar de usuario"></item>
+<item android:id="@+id/salir" android:title="Salir"></item>
+ 
+</menu>

@@ -334,7 +334,7 @@ public class Login extends Activity{
 	    		}}).start();
 	    }    
 	 
-	    public void onBackPressed() 
+	    /*public void onBackPressed() 
 		{
 	    	this.onDestroy();
 		}
@@ -342,6 +342,6 @@ public class Login extends Activity{
 	    public void onDestroy()
 	    {
 	        super.onDestroy();
-	    }
+	    }*/
 
 }

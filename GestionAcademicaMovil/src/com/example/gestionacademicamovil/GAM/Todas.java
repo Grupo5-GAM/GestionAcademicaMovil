@@ -6,35 +6,32 @@ import android.content.Intent;
 import android.view.Menu;
 import android.widget.TextView;
 
-public class AsignaturasActivity extends Activity {
+public class Todas extends Activity {
 	
-	private  Bundle bundle;
-	private String user,grado;
 	private TextView usuario,texto;
+	private  Bundle bundle;
+	private String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gam);
+        setContentView(R.layout.cuatrimestres);
         
         bundle=getIntent().getExtras();
         user=bundle.getString("user");
-        grado=bundle.getString("grado");
         
-        usuario=(TextView)findViewById(R.id.usuario);
-        usuario.setText(user);
         texto=(TextView)findViewById(R.id.texto);
-        texto.setText("Asignaturas"+grado);
+        texto.setText("Primero");
         
     }
 
     public void onBackPressed() 
 	{
 		Intent i = new Intent();
-		i.setClass(AsignaturasActivity.this, ListaActivity.class);
-  		i.putExtra("user",bundle.getString("user"));
+		i.setClass(Todas.this, ListaActivity.class);
+		i.putExtra("user",bundle.getString("user"));
   		startActivity(i);
-  		AsignaturasActivity.this.finish();
+  		Todas.this.finish();
 	 }
     
 }

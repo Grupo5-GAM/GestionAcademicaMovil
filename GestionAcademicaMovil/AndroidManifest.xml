@@ -35,6 +35,8 @@
  		<activity android:name=".ExpedienteActivity"></activity>
  		<activity android:name=".Primero"></activity>
  		<activity android:name=".Segundo"></activity>
+ 		<activity android:name=".Todas"></activity>
+ 		<activity android:name=".AjustesActivity"></activity>
         
     </application>
 

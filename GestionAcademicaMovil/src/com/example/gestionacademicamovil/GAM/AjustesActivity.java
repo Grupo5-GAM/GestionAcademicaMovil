@@ -6,10 +6,10 @@ import android.content.Intent;
 import android.view.Menu;
 import android.widget.TextView;
 
-public class AsignaturasActivity extends Activity {
+public class AjustesActivity extends Activity {
 	
 	private  Bundle bundle;
-	private String user,grado;
+	private String user;
 	private TextView usuario,texto;
 
     @Override
@@ -19,22 +19,21 @@ public class AsignaturasActivity extends Activity {
         
         bundle=getIntent().getExtras();
         user=bundle.getString("user");
-        grado=bundle.getString("grado");
         
         usuario=(TextView)findViewById(R.id.usuario);
         usuario.setText(user);
         texto=(TextView)findViewById(R.id.texto);
-        texto.setText("Asignaturas"+grado);
+        texto.setText("Ajustes");
         
     }
 
     public void onBackPressed() 
 	{
 		Intent i = new Intent();
-		i.setClass(AsignaturasActivity.this, ListaActivity.class);
+		i.setClass(AjustesActivity.this, ListaActivity.class);
   		i.putExtra("user",bundle.getString("user"));
   		startActivity(i);
-  		AsignaturasActivity.this.finish();
+  		AjustesActivity.this.finish();
 	 }
     
 }
