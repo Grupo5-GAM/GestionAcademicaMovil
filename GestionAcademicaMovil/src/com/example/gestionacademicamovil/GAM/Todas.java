@@ -21,7 +21,7 @@ public class Todas extends Activity {
         user=bundle.getString("user");
         
         texto=(TextView)findViewById(R.id.texto);
-        texto.setText("Primero");
+        texto.setText("Todas");
         
     }
 

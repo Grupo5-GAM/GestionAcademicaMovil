@@ -43,8 +43,9 @@ public class MatriculaActivity extends Activity {
 		Intent i = new Intent();
 		i.setClass(MatriculaActivity.this, ListaActivity.class);
   		i.putExtra("user",bundle.getString("user"));
-  		startActivity(i);
   		MatriculaActivity.this.finish();
+  		startActivity(i);
+  		
 	 }
     
 }

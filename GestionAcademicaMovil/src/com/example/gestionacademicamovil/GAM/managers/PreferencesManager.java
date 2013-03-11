@@ -138,44 +138,6 @@ public class PreferencesManager {
 	}
 	
 	/**
-	 * Retrieves the auto login setting value.
-	 * 
-	 * @return Auto login setting value, default one if not configured.
-	 */
-	public boolean getAutoLogin() {
-		return preferences.getBoolean(PreferencesConstants.AUTO_LOGIN, PreferencesConstants.AUTO_LOGIN_DEFAULT);
-	}
-	
-	/**
-	 * Sets the auto login setting new value.
-	 * 
-	 * @param autoLogin Auto login setting new value.
-	 */
-	public void setAutoLogin(boolean autoLogin) {
-		editor.putBoolean(PreferencesConstants.AUTO_LOGIN, autoLogin);
-		editor.commit();
-	}
-	
-	/**
-	 * Retrieves whether the service auto start is enabled or not.
-	 * 
-	 * @return True if service auto start is enabled, false otherwise.
-	 */
-	public boolean getAutoStartEnabled() {
-		return preferences.getBoolean(PreferencesConstants.AUTO_START, PreferencesConstants.AUTO_START_DEFAULT);
-	}
-	
-	/**
-	 * Sets whether service auto start is enabled or not.
-	 * 
-	 * @param autoStart True if service auto start is enabled, false otherwise.
-	 */
-	public void setAutoStartEnabled(boolean autoStart) {
-		editor.putBoolean(PreferencesConstants.AUTO_START, autoStart);
-		editor.commit();
-	}
-	
-	/**
 	 * Retrieves the shared preferences instance.
 	 * 
 	 * @return The shared preferences instance.

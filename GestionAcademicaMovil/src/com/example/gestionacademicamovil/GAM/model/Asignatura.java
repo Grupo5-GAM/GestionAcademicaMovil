@@ -2,54 +2,69 @@ package com.example.gestionacademicamovil.GAM.model;
 
 public class Asignatura {
 
+	private String grado;
 	private String nombre;
-	private String c;
-	private String NIF;
-	private String apellidos;
-	private String telefono;
+	private int creditos;
+	private String profesor;
+	private String guia;
 	
 	public Asignatura()
 	{
-	
-		setNIF("");
-		setApellidos("");
-		setTelefono("");
+		this.grado="Grado informatica";
+		this.nombre="Taller transversal";
+		this.creditos=6;
+		this.profesor="Cesar dominguez";
+		this.guia="http:/blabla";
 	}
 	
-	public Asignatura(String u,String p,String n,String a,String t)
+	public Asignatura(String gr,String n,int c,String p,String g)
 	{
-		
-		setNIF("n");
-		setApellidos("a");
-		setTelefono("t");
+		this.grado=gr;
+		this.nombre=n;
+		this.creditos=c;
+		this.profesor=p;
+		this.guia=g;
 	}
 
-	
-
-	public String getNIF() {
-		return NIF;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setNIF(String nIF) {
-		NIF = nIF;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
-	public String getApellidos() {
-		return apellidos;
+	public int getCreditos() {
+		return creditos;
 	}
 
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
+	public void setCreditos(int creditos) {
+		this.creditos = creditos;
 	}
 
-	public String getTelefono() {
-		return telefono;
+	public String getProfesor() {
+		return profesor;
 	}
 
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
+	public void setProfesor(String profesor) {
+		this.profesor = profesor;
 	}
-	
+
+	public String getGuia() {
+		return guia;
+	}
+
+	public void setGuia(String guia) {
+		this.guia = guia;
+	}
+
+	public String getGrado() {
+		return grado;
+	}
+
+	public void setGrado(String grado) {
+		this.grado = grado;
+	}
 	
 	
 	

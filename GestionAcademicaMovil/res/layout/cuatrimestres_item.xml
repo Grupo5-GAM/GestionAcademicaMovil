@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+    
+     <LinearLayout 
+		android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:paddingLeft="10dp"
+		android:paddingBottom="2dp"
+		android:paddingTop="10dp" 
+		android:background="@color/white">
+		<TextView
+			android:id="@+id/asignatura"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text=""
+			android:textSize="10dip"
+			android:textColor="@color/black" />
+		<TextView
+			android:id="@+id/creditos"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="0"
+			android:textSize="10dip"
+			android:textColor="@color/black" 
+			android:paddingLeft="100dp"/>
+		<TextView
+			android:id="@+id/nota"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="0"
+			android:textSize="10dip"
+			android:textColor="@color/black" 
+			android:paddingLeft="30dp"/>
+		<TextView
+			android:id="@+id/definitiva"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="no"
+			android:textSize="10dip"
+			android:textColor="@color/black" 
+			android:paddingLeft="30dp"/>
+		<TextView
+			android:id="@+id/revision"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text=""
+			android:textSize="10dip"
+			android:textColor="@color/black" 
+			android:paddingLeft="10dp"/>
+		</LinearLayout>
+    
+    </LinearLayout>

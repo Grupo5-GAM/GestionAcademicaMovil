@@ -1,10 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="menu">
+    
+    <string-array name="todo">
         <item>Ultima matricula</item>
-        <item>Expediente</item>
-        <item>Horario</item>
         <item>Asignaturas</item>
+        <item>Horarios</item>
+        <item>Examenes</item>
+        <item>Notas</item>
+        <item>Convalidaciones</item>
+        <item>Traslados</item>
+        <item>Becas</item>
+        <item>Aula Virtual</item>
+    </string-array>
+    
+    <string-array name="matricula">
+        <item>Ultima matricula</item>
+        <item>Asignaturas</item>
+        <item>Horarios</item>
+    </string-array>
+    
+    <string-array name="expediente">
+        <item>Notas</item>
+        <item>Convalidaciones</item>
+        <item>Traslados</item>
+    </string-array>
+        
+    <string-array name="solicitudes">
         <item>Becas</item>
     </string-array>
+    
+    <string-array name="Accesos">
+        <item>Aula Virtual</item>
+    </string-array>
+    
+    <string-array name="Cursos">
+        <item>Primero</item>
+        <item>Segundo</item>
+        <item>Tercero</item>
+        <item>Cuarto</item>
+    </string-array>
+    
+
 </resources>

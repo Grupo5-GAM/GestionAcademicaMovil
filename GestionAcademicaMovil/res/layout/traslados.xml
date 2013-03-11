@@ -1,10 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/white"
     android:orientation="vertical" >
-
+    
+    <LinearLayout 
+ 		android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+		android:stretchColumns="1"
+		android:orientation="horizontal"
+		android:background="#880015"
+		android:padding="5dp">
+	        
+    	<TextView
+       		android:id="@+id/usuario"
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="20dp"
+      	 	android:textSize="20sp"
+      	 	android:textColor="@color/white"/>
+	</LinearLayout>
+	
+    
     <LinearLayout 
 		android:orientation="horizontal"
 		android:layout_width="fill_parent"
@@ -13,48 +30,34 @@
 		android:paddingBottom="2dp"
 		android:paddingTop="10dp" 
 		android:background="@color/white">
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="Asignatura"
-			android:textSize="12dip"
-			android:textStyle="bold"
-			android:textColor="@color/black" />
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="Creditos"
-			android:textSize="12dip"
-			android:textStyle="bold"
-			android:textColor="@color/black"
-			android:paddingLeft="40dp" />
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="Nota"
-			android:textSize="12dip"
-			android:textStyle="bold"
-			android:textColor="@color/black" 
-			android:paddingLeft="10dp"/>
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="Definitiva"
-			android:textSize="12dip"
-			android:textStyle="bold"
-			android:textColor="@color/black" 
-			android:paddingLeft="10dp"/>
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="Revision"
-			android:textSize="12dip"
-			android:textStyle="bold"
-			android:textColor="@color/black" 
-			android:paddingLeft="10dp"/>
-		</LinearLayout>
-		
-    <LinearLayout 
+        <TextView
+            android:id="@+id/universidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Universidad"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:minWidth="60dp" />
+        <TextView
+            android:id="@+id/ciudad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ciudad"            
+            android:textSize="12sp" 
+            android:paddingLeft="60dp"
+            android:textStyle="bold"
+            android:minWidth="50dp" />
+        <TextView
+            android:id="@+id/pais"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="País"            
+            android:textSize="12sp" 
+            android:paddingLeft="30dp"
+            android:textStyle="bold"
+            android:minWidth="50dp" />
+    </LinearLayout>
+   <LinearLayout 
        android:orientation="horizontal"
        android:layout_width="match_parent"
        android:layout_height="0.5dp"

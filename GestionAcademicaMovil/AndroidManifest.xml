@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="10"
-        android:targetSdkVersion="10" />
+        android:targetSdkVersion="17" />
     
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.INTERNET" />
@@ -26,17 +26,18 @@
             	</intent-filter>
         </activity>
         
-        <activity android:name=".GAMActivity"></activity>
-        <activity android:name=".ListaActivity"></activity>
+        <activity android:name=".AjustesActivity"></activity>
         <activity android:name=".AsignaturasActivity"></activity>
         <activity android:name=".BecasActivity"></activity>
- 		<activity android:name=".HorarioActivity"></activity>
- 		<activity android:name=".MatriculaActivity"></activity>
- 		<activity android:name=".ExpedienteActivity"></activity>
+        <activity android:name=".ConvalidacionesActivity"></activity>
+        <activity android:name=".GAMActivity"></activity>
+        <activity android:name=".HorariosActivity"></activity>
+        <activity android:name=".ListaActivity"></activity>
+        <activity android:name=".MatriculaActivity"></activity>
+ 		<activity android:name=".NotasActivity"></activity>
  		<activity android:name=".Primero"></activity>
  		<activity android:name=".Segundo"></activity>
- 		<activity android:name=".Todas"></activity>
- 		<activity android:name=".AjustesActivity"></activity>
+ 		<activity android:name=".TrasladosActivity"></activity>
         
     </application>
 

@@ -5,11 +5,12 @@ import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.view.Menu;
+import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
 
-public class HorarioActivity extends TabActivity {
+public class NotasActivity extends TabActivity {
 	
 	private  Bundle bundle;
 	private String user;
@@ -19,18 +20,18 @@ public class HorarioActivity extends TabActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.horarios);
+        setContentView(R.layout.notas);
         
         bundle=getIntent().getExtras();
         user=bundle.getString("user");
         
-        //usuario=(TextView)findViewById(R.id.usuario);
-        //usuario.setText(user);
+        usuario=(TextView)findViewById(R.id.usuario);
+        usuario.setText(user);
         
         mTabHost = getTabHost();
         addTabPrimero();
         addTabSegundo();
-        addTabTodas();
+       // addTabTodas();
         
     }
     
@@ -53,7 +54,7 @@ public class HorarioActivity extends TabActivity {
 	      mTabHost.addTab(spec);
 	}
 	
-	private void addTabTodas() {
+	/*private void addTabTodas() {
 	      Intent intent = new Intent(this, Todas.class);
 	      intent.putExtra("data",bundle.getString("data"));
 	      intent.putExtra("user",bundle.getString("user"));
@@ -61,15 +62,16 @@ public class HorarioActivity extends TabActivity {
 	      spec.setIndicator("Todas");
 	      spec.setContent(intent);
 	      mTabHost.addTab(spec);
-	}
+	}*/
 
     public void onBackPressed() 
 	{
 		Intent i = new Intent();
-		i.setClass(HorarioActivity.this, ListaActivity.class);
+		i.setClass(NotasActivity.this, ListaActivity.class);
   		i.putExtra("user",bundle.getString("user"));
+  		NotasActivity.this.finish();
   		startActivity(i);
-  		HorarioActivity.this.finish();
+  		
 	 }
     
 }
