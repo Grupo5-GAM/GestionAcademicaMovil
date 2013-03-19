@@ -13,7 +13,6 @@ import android.widget.TextView;
 public class NotasActivity extends TabActivity {
 	
 	private  Bundle bundle;
-	private String user;
 	private TextView usuario;
 	private static TabHost mTabHost;
 
@@ -22,11 +21,8 @@ public class NotasActivity extends TabActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.notas);
         
-        bundle=getIntent().getExtras();
-        user=bundle.getString("user");
-        
         usuario=(TextView)findViewById(R.id.usuario);
-        usuario.setText(user);
+        usuario.setText(GAMApplication.getInstance().getPreferencesManager().getName());
         
         mTabHost = getTabHost();
         addTabPrimero();
@@ -38,7 +34,6 @@ public class NotasActivity extends TabActivity {
     private void addTabPrimero() {
 	      Intent intent = new Intent().setClass(this, Primero.class);
 	      intent.putExtra("data",bundle.getString("data"));
-	      intent.putExtra("user",bundle.getString("user"));
 	      TabSpec spec = mTabHost.newTabSpec("Tab1");
 	      spec.setIndicator("Primer cuatrimentre");
 	      spec.setContent(intent);
@@ -47,7 +42,6 @@ public class NotasActivity extends TabActivity {
 	private void addTabSegundo() {
 	      Intent intent = new Intent(this, Segundo.class);
 	      intent.putExtra("data",bundle.getString("data"));
-	      intent.putExtra("user",bundle.getString("user"));
 	      TabSpec spec = mTabHost.newTabSpec("Tab2");
 	      spec.setIndicator("Segundo cuatrimestre");
 	      spec.setContent(intent);
@@ -68,7 +62,6 @@ public class NotasActivity extends TabActivity {
 	{
 		Intent i = new Intent();
 		i.setClass(NotasActivity.this, ListaActivity.class);
-  		i.putExtra("user",bundle.getString("user"));
   		NotasActivity.this.finish();
   		startActivity(i);
   		

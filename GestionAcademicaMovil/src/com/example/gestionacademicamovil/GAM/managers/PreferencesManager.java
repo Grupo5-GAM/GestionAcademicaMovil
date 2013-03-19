@@ -63,7 +63,7 @@ public class PreferencesManager {
 	
 	
 	
-	public List<String> getAllUser() {
+	/*public List<String> getAllUser() {
 		Map<String,?> AllData=preferences.getAll();
 		Iterator<?> itr = AllData.entrySet().iterator();
 		List<String> usuarios=new ArrayList<String>();;
@@ -76,7 +76,7 @@ public class PreferencesManager {
 			}
 		}
 		return usuarios;
-	}
+	}*/
 	
 	/**
 	 * Retrieves the Email setting value.
@@ -92,7 +92,7 @@ public class PreferencesManager {
 	 * 
 	 * @param email Email setting new value.
 	 */
-	public void setEmail(String user) {
+	public void setUser(String user) {
 		editor.putString(PreferencesConstants.USER, user);
 		editor.commit();
 	}

@@ -8,7 +8,6 @@ import android.widget.TextView;
 public class GAMActivity extends Activity {
 	
 	private  Bundle bundle;
-	private String user;
 	private TextView usuario,texto;
 
     @Override
@@ -16,11 +15,8 @@ public class GAMActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gam);
         
-        bundle=getIntent().getExtras();
-        user=bundle.getString("user");
-        
         usuario=(TextView)findViewById(R.id.usuario);
-        usuario.setText(user);
+        usuario.setText(GAMApplication.getInstance().getPreferencesManager().getName());
        /* texto=(TextView)findViewById(R.id.texto);
         texto.setText("hola"+user);*/
         

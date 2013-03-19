@@ -23,7 +23,7 @@ public class AsignaturasActivity extends Activity {
 	private ListView list;
 	
 	private Bundle bundle;
-	private String user,grado;
+	private String grado;
 	private TextView usuario;
 	
 	private miAdapter adapter;
@@ -36,11 +36,10 @@ public class AsignaturasActivity extends Activity {
         setContentView(R.layout.asignaturas);
         
         bundle=getIntent().getExtras();
-        user=bundle.getString("user");
         grado=bundle.getString("grado");
         
         usuario=(TextView)findViewById(R.id.usuario);
-        usuario.setText(user);
+        usuario.setText(GAMApplication.getInstance().getPreferencesManager().getName());
         
         list= (ListView)findViewById(R.id.list);
         adapter=new miAdapter(this,R.layout.asignaturas_item,datos);
@@ -98,7 +97,6 @@ public class AsignaturasActivity extends Activity {
 	{
 		Intent i = new Intent();
 		i.setClass(AsignaturasActivity.this, ListaActivity.class);
-  		i.putExtra("user",bundle.getString("user"));
   		AsignaturasActivity.this.finish();
   		startActivity(i);
   		

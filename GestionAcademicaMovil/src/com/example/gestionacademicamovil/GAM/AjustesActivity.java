@@ -9,7 +9,6 @@ import android.widget.TextView;
 public class AjustesActivity extends Activity {
 	
 	private  Bundle bundle;
-	private String user;
 	private TextView usuario,texto;
 
     @Override
@@ -18,10 +17,10 @@ public class AjustesActivity extends Activity {
         setContentView(R.layout.activity_gam);
         
         bundle=getIntent().getExtras();
-        user=bundle.getString("user");
+        usuario.setText(GAMApplication.getInstance().getPreferencesManager().getName());
         
         usuario=(TextView)findViewById(R.id.usuario);
-        usuario.setText(user);
+        usuario.setText(GAMApplication.getInstance().getPreferencesManager().getName());
         texto=(TextView)findViewById(R.id.texto);
         texto.setText("Ajustes");
         
@@ -31,7 +30,6 @@ public class AjustesActivity extends Activity {
 	{
 		Intent i = new Intent();
 		i.setClass(AjustesActivity.this, ListaActivity.class);
-  		i.putExtra("user",bundle.getString("user"));
   		startActivity(i);
   		AjustesActivity.this.finish();
 	 }

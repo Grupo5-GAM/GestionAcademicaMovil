@@ -162,8 +162,7 @@
  		android:layout_width="match_parent"
     	android:layout_height="wrap_content"
 		android:orientation="horizontal"
-		android:paddingTop="5dp"
-		android:paddingBottom="10dp">
+		android:paddingTop="5dp">
    		 <TextView
        		android:layout_width="wrap_content"
     		android:layout_height="wrap_content"
@@ -172,16 +171,50 @@
       	 	android:textSize="12sp"
       	 	android:textColor="@color/black"
       	 	android:textStyle="bold"
-      	 	android:text="Nacimiento"/>
+      	 	android:text="Telefono"/>
    		 
    		 <TextView
-   		    android:id="@+id/fecha_nacimiento"
+   		    android:id="@+id/telefono"
        		android:layout_width="wrap_content"
     		android:layout_height="wrap_content"
       	 	android:layout_marginLeft="10dp"
       	 	android:textSize="12sp"
       	 	android:textColor="@color/black"
-      	 	android:text="10/08/1989"/>
+      	 	android:text="941363258"/>
+    </LinearLayout>
+    
+      <LinearLayout 
+ 			android:layout_width="match_parent"
+    		android:layout_height="1dip"
+			android:stretchColumns="1"
+			android:orientation="vertical"
+			android:background="@color/gray"
+			android:layout_marginTop="5dp"/>
+    
+     <LinearLayout 
+ 		android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:paddingTop="5dp"
+		android:paddingBottom="5dp">
+   		 <TextView
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:minWidth="130dp"
+      	 	android:textSize="12sp"
+      	 	android:textColor="@color/black"
+      	 	android:textStyle="bold"
+      	 	android:text="Email"/>
+   		 
+   		 <TextView
+   		    android:id="@+id/email"
+       		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+      	 	android:layout_marginLeft="10dp"
+      	 	android:textSize="12sp"
+      	 	android:textColor="@color/black"
+      	 	android:text="pepito@alum.unirioja.com"/>
     </LinearLayout>
     
      </LinearLayout>
@@ -353,7 +386,7 @@
     	android:layout_height="wrap_content"
 		android:orientation="horizontal"
 		android:paddingTop="5dp"
-		android:paddingBottom="10dp">
+		android:paddingBottom="5dp">
    		 <TextView
        		android:layout_width="wrap_content"
     		android:layout_height="wrap_content"

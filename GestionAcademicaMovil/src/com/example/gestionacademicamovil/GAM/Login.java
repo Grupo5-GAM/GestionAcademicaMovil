@@ -10,8 +10,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -77,7 +75,6 @@ public class Login extends Activity{
 	private Bundle bundle;
 	private String opcion;
 	
-	
     public void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);        
       setContentView(R.layout.login); 
@@ -100,14 +97,14 @@ public class Login extends Activity{
 		  }
 	  });
 			
-		/*if (GAMApplication.getInstance().getPreferencesManager().getRememberLogin()) {
+	  if (GAMApplication.getInstance().getPreferencesManager().getRememberLogin()) {
 			txtUser.setText(GAMApplication.getInstance().getPreferencesManager().getUser());
 			txtPass.setText(GAMApplication.getInstance().getPreferencesManager().getPassword());
 			
 			rememberLogin.setChecked(true);
-		} else {
+	  } else {
 			rememberLogin.setChecked(false);
-		}  */
+	  }  
       
       ListView lv = (ListView) findViewById(R.id.lstData);
    
@@ -134,8 +131,8 @@ public class Login extends Activity{
 	public void onStart()
 	{
 		super.onStart();
-				
-		loadData();
+		
+		//loadData();
 	}
 	
 	private void validar()
@@ -148,8 +145,12 @@ public class Login extends Activity{
         	//si pasamos esa validacion ejecutamos el asynctask pasando el usuario y clave como parametros
         	//new asynclogin().execute(user,pass);
     	   
+    	   GAMApplication.getInstance().getPreferencesManager().setUser(user);
+    	   GAMApplication.getInstance().getPreferencesManager().setPassword(pass);
+    	   
+    	   GAMApplication.getInstance().getPreferencesManager().setName(user);
+    	   
     	   Intent i=new Intent(Login.this, ListaActivity.class);
-    	   i.putExtra("user",user);
     	   Login.this.finish();
     	   startActivity(i);
     	   

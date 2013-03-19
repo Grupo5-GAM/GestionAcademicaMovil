@@ -26,7 +26,6 @@ public class HorariosActivity extends Activity {
 	private ListView list1,list2;
 	
 	private Bundle bundle;
-	private String user;
 	private TextView usuario;
 	
 	private ArrayAdapter adapter1,adapter2;
@@ -36,11 +35,8 @@ public class HorariosActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.horarios);
         
-        bundle=getIntent().getExtras();
-        user=bundle.getString("user");
-        
         usuario=(TextView)findViewById(R.id.usuario);
-        usuario.setText(user);
+        usuario.setText(GAMApplication.getInstance().getPreferencesManager().getName());
         
         list1= (ListView)findViewById(R.id.list1);
         list2= (ListView)findViewById(R.id.list2);
@@ -113,7 +109,6 @@ public class HorariosActivity extends Activity {
 	{
 		Intent i = new Intent();
 		i.setClass(HorariosActivity.this, ListaActivity.class);
-  		i.putExtra("user",bundle.getString("user"));
   		HorariosActivity.this.finish();
   		startActivity(i);
 	 }

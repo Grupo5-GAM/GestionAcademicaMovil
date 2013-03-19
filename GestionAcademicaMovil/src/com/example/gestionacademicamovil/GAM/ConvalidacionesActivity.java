@@ -21,7 +21,7 @@ public class ConvalidacionesActivity  extends Activity
 private ListView list;
 	
 	private Bundle bundle;
-	private String user,grado;
+	private String grado;
 	private TextView usuario;
 	
 	private miAdapter adapter;
@@ -35,11 +35,10 @@ private ListView list;
         setContentView(R.layout.convalidaciones);
 		
         bundle=getIntent().getExtras();
-	     user=bundle.getString("user");
-	     grado=bundle.getString("grado");
+	    //grado=bundle.getString("grado");
 	        
 	     usuario=(TextView)findViewById(R.id.usuario);
-	     usuario.setText(user);
+	     usuario.setText(GAMApplication.getInstance().getPreferencesManager().getName());
 	        
 	     list= (ListView)findViewById(R.id.list);
 	     adapter=new miAdapter(this,R.layout.convalidacion_item,datos);
@@ -98,7 +97,6 @@ private ListView list;
 	{
 		Intent i = new Intent();
 		i.setClass(ConvalidacionesActivity.this, ListaActivity.class);
-  		i.putExtra("user",bundle.getString("user"));
   		ConvalidacionesActivity.this.finish();
   		startActivity(i);
   		

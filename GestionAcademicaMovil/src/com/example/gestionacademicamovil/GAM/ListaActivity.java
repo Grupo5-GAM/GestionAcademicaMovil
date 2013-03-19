@@ -32,7 +32,6 @@ public class ListaActivity extends Activity {
 	private ListView list1,list2,list3,list4;
 	private TextView usuario;
 	private ArrayAdapter adapter1,adapter2,adapter3,adapter4;
-	private String user;
 	private Dialog dialog;
 	private Resources mResources;
 	
@@ -45,10 +44,9 @@ public class ListaActivity extends Activity {
       mResources = getResources();
       
       bundle=getIntent().getExtras();
-      user=bundle.getString("user");
 
       usuario=(TextView)findViewById(R.id.usuario);
-      usuario.setText(user);
+      usuario.setText(GAMApplication.getInstance().getPreferencesManager().getName());
       
       list1= (ListView)findViewById(R.id.list1);
       //list2= (ListView)findViewById(R.id.list2);
@@ -72,7 +70,6 @@ public class ListaActivity extends Activity {
 			    	if(position==0)
 			    	{
 			    		i.setClass(ListaActivity.this, MatriculaActivity.class);
-			    		i.putExtra("user",user);
 			    		startActivity(i);
 			    	}
 			    	else if(position==1)
@@ -82,7 +79,6 @@ public class ListaActivity extends Activity {
 			    	else if(position==2)
 			    	{
 			    		i.setClass(ListaActivity.this, HorariosActivity.class);
-			    		i.putExtra("user",user);
 			    		startActivity(i);
 			    	}
 			    	else if(position==3)
@@ -92,25 +88,21 @@ public class ListaActivity extends Activity {
 			    	else if(position==4)
 			    	{
 			    		i.setClass(ListaActivity.this,NotasActivity.class);
-			    		i.putExtra("user",user);
 			    		startActivity(i);
 			    	}
 			    	else if(position==5)
 			    	{
 			    		i.setClass(ListaActivity.this,ConvalidacionesActivity.class);
-			    		i.putExtra("user",user);
 			    		startActivity(i);
 			    	}
 			    	else if(position==6)
 			    	{
 			    		i.setClass(ListaActivity.this,TrasladosActivity.class);
-			    		i.putExtra("user",user);
 			    		startActivity(i);
 			    	}
 			    	else if(position==7)
 			    	{
 			    		i.setClass(ListaActivity.this,BecasActivity.class);
-			    		i.putExtra("user",user);
 			    		startActivity(i);
 			    	}
 			    	else
@@ -194,13 +186,11 @@ public class ListaActivity extends Activity {
     	switch (item.getItemId()) {
             case R.id.Ajustes:
             	i=new Intent(ListaActivity.this, AjustesActivity.class);
-	        	i.putExtra("user",user);
 	        	startActivity(i);
 	        	
                 return true;
             case R.id.cambiarUsuario:
             	i=new Intent(ListaActivity.this, Login.class);
-	        	i.putExtra("user",user);
 	        	startActivity(i);
     
                 return true;
@@ -253,7 +243,6 @@ public class ListaActivity extends Activity {
         			i.putExtra("grado","grado3");
         		}
     	        
-    	        i.putExtra("user",user);
     			startActivity(i);
     	        
     	        dialog.cancel();
@@ -292,7 +281,6 @@ public class ListaActivity extends Activity {
 		    	    startActivity(i);
         		}
     	        
-    	        i.putExtra("user",user);
     			startActivity(i);
     	        
     	        dialog.cancel();

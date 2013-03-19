@@ -21,7 +21,7 @@ public class BecasActivity extends Activity
 	private ListView list;
 	
 	private Bundle bundle;
-	private String user,grado;
+	private String grado;
 	private TextView usuario;
 	
 	private miAdapter adapter;
@@ -34,11 +34,10 @@ public class BecasActivity extends Activity
          setContentView(R.layout.becas);
         
 		 bundle=getIntent().getExtras();
-	     user=bundle.getString("user");
 	     grado=bundle.getString("grado");
 	        
 	     usuario=(TextView)findViewById(R.id.usuario);
-	     usuario.setText(user);
+	     usuario.setText(GAMApplication.getInstance().getPreferencesManager().getName());
 	        
 	     list= (ListView)findViewById(R.id.list);
 	     adapter=new miAdapter(this,R.layout.becas_item,datos);
@@ -91,7 +90,6 @@ public class BecasActivity extends Activity
 	{
 		Intent i = new Intent();
 		i.setClass(BecasActivity.this, ListaActivity.class);
-  		i.putExtra("user",bundle.getString("user"));
   		BecasActivity.this.finish();
   		startActivity(i);
   		

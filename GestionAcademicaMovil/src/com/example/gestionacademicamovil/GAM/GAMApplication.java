@@ -1,6 +1,7 @@
 package com.example.gestionacademicamovil.GAM;
 
 import com.example.gestionacademicamovil.GAM.managers.PreferencesManager;
+import com.example.gestionacademicamovil.GAM.managers.UsuarioManager;
 
 import android.app.Application;
 import android.content.Context;
@@ -26,6 +27,7 @@ public class GAMApplication extends Application {
 	
 	// Variables
 	private PreferencesManager preferencesManager;
+	private UsuarioManager usuarioManager;
 	
 	
 	private static GAMApplication instance;
@@ -59,7 +61,7 @@ public class GAMApplication extends Application {
 		instance = this;
 		// Initialize managers.
 		preferencesManager = new PreferencesManager(this);
-		
+		usuarioManager = new UsuarioManager(this);
 	}
 	
 	/**
@@ -79,6 +81,10 @@ public class GAMApplication extends Application {
 	 */
 	public PreferencesManager getPreferencesManager() {
 		return preferencesManager;
+	}
+	
+	public UsuarioManager getUsuarioManager() {
+		return usuarioManager;
 	}
 
 	

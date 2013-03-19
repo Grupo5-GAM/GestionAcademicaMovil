@@ -27,7 +27,6 @@ public class Segundo extends Activity {
 	
 	private TextView usuario,texto;
 	private  Bundle bundle;
-	private String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +34,6 @@ public class Segundo extends Activity {
         setContentView(R.layout.cuatrimestres);
         
         bundle=getIntent().getExtras();
-        user=bundle.getString("user");
         
         list= (ListView)findViewById(R.id.list);
         adapter=new miAdapter(this,R.layout.cuatrimestres_item,datos);
@@ -96,7 +94,6 @@ public class Segundo extends Activity {
 	{
 		Intent i = new Intent();
 		i.setClass(Segundo.this, ListaActivity.class);
-		i.putExtra("user",bundle.getString("user"));
 		Segundo.this.finish();
   		startActivity(i);
   		

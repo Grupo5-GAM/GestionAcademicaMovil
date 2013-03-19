@@ -21,7 +21,7 @@ public class TrasladosActivity extends Activity
 	private ListView list;
 	
 	private Bundle bundle;
-	private String user,grado;
+	private String grado;
 	private TextView usuario;
 	
 	private miAdapter adapter;
@@ -34,11 +34,10 @@ public class TrasladosActivity extends Activity
          setContentView(R.layout.traslados);
         
 		 bundle=getIntent().getExtras();
-	     user=bundle.getString("user");
 	     grado=bundle.getString("grado");
 	        
 	     usuario=(TextView)findViewById(R.id.usuario);
-	     usuario.setText(user);
+	     usuario.setText(GAMApplication.getInstance().getPreferencesManager().getName());
 	        
 	     list= (ListView)findViewById(R.id.list);
 	     adapter=new miAdapter(this,R.layout.traslados_item,datos);
@@ -93,7 +92,6 @@ public class TrasladosActivity extends Activity
 	{
 		Intent i = new Intent();
 		i.setClass(TrasladosActivity.this, ListaActivity.class);
-  		i.putExtra("user",bundle.getString("user"));
   		startActivity(i);
   		TrasladosActivity.this.finish();
 	 }
