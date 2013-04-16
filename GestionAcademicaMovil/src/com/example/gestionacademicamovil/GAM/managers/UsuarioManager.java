@@ -1,30 +1,22 @@
 package com.example.gestionacademicamovil.GAM.managers;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.lang.reflect.Type;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapPrimitive;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
 
 import android.content.Context;
-import android.widget.Toast;
 
 import com.example.gestionacademicamovil.GAM.GAMApplication;
-import com.example.gestionacademicamovil.GAM.model.SecurityToken;
-import com.example.gestionacademicamovil.GAM.model.DatoAlumno;
 import com.example.gestionacademicamovil.GAM.model.Usuario;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+
+import es.unirioja.ae.academico.api.jws.*;
 
 public class UsuarioManager {
 	
@@ -49,8 +41,6 @@ public class UsuarioManager {
 		this.context = context;
 	}
 	
-	
-	//token es un Securitytoken que hay que crear con la cuasi y la contraseña
 	public static Usuario getUsuario(SecurityToken token)
 	{			
 		GAMApplication.getInstance().showToast(token.getUsername()+token.getPasswd());
@@ -94,12 +84,6 @@ public class UsuarioManager {
 				e.printStackTrace();
 			}
 		 
-			/*String  strJson = resultsRequestSOAP.toString();
-
-			gson = new Gson();
-			Type lstT = new TypeToken<ArrayList>(){}.getType();
-			ArrayList arrListAOS = new ArrayList();
-			arrListAOS = gson.fromJson(strJson, lstT);*/
 		return user;
 	 }
 	

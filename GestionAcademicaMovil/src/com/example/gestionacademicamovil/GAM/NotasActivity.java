@@ -4,44 +4,65 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.view.Menu;
+import android.view.Window;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
 
-public class NotasActivity extends TabActivity {
+public class NotasActivity extends TabActivity 
+{
 	
 	private  Bundle bundle;
 	private TextView usuario;
 	private static TabHost mTabHost;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+	private Resources mResources;
+ 
+	@Override
+    protected void onCreate(Bundle savedInstanceState) 
+    {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.notas);
+        
+        mResources = getResources();
         
         usuario=(TextView)findViewById(R.id.usuario);
         usuario.setText(GAMApplication.getInstance().getPreferencesManager().getName());
         
         mTabHost = getTabHost();
+        
+        /*for(int i=0;i<mTabHost.getTabWidget().getChildCount();i++)
+        {
+        	TextView text=(TextView)mTabHost.getTabWidget().getChildAt(i).findViewById(android.R.id.title) ;
+        	text.setTextColor(mResources.getColor(Color.BLACK));
+        }*/
+        
+       
+        
         addTabPrimero();
         addTabSegundo();
-       // addTabTodas();
+        
+        mTabHost.getTabWidget().getChildAt(0).setBackgroundDrawable(mResources.getDrawable(R.drawable.selector_filas));
+        mTabHost.getTabWidget().getChildAt(1).setBackgroundDrawable(mResources.getDrawable(R.drawable.selector_filas));
         
     }
     
-    private void addTabPrimero() {
+    private void addTabPrimero() 
+    {
 	      Intent intent = new Intent().setClass(this, Primero.class);
-	      intent.putExtra("data",bundle.getString("data"));
 	      TabSpec spec = mTabHost.newTabSpec("Tab1");
 	      spec.setIndicator("Primer cuatrimentre");
 	      spec.setContent(intent);
 	      mTabHost.addTab(spec);
 	}
-	private void addTabSegundo() {
+	private void addTabSegundo() 
+	{
 	      Intent intent = new Intent(this, Segundo.class);
-	      intent.putExtra("data",bundle.getString("data"));
 	      TabSpec spec = mTabHost.newTabSpec("Tab2");
 	      spec.setIndicator("Segundo cuatrimestre");
 	      spec.setContent(intent);
@@ -58,13 +79,6 @@ public class NotasActivity extends TabActivity {
 	      mTabHost.addTab(spec);
 	}*/
 
-    public void onBackPressed() 
-	{
-		Intent i = new Intent();
-		i.setClass(NotasActivity.this, ListaActivity.class);
-  		NotasActivity.this.finish();
-  		startActivity(i);
-  		
-	 }
+   
     
 }

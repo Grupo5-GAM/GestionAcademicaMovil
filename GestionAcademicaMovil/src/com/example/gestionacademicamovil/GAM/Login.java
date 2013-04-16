@@ -10,6 +10,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.example.gestionacademicamovil.GAM.model.Asignatura;
+import com.example.gestionacademicamovil.GAM.model.Usuario;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -29,11 +32,15 @@ import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
@@ -60,6 +67,9 @@ public class Login extends Activity{
 	
 	public static final String LOGIN_INTENT = "com.example.uniadministration.LOGIN_INTENT";
 	
+	private ArrayList<Usuario> datos=new ArrayList<Usuario>();
+	private Usuario u;
+	
 	private EditText txtPass;
 	private EditText txtUser;
 	private CheckBox rememberLogin;
@@ -76,7 +86,8 @@ public class Login extends Activity{
 	private String opcion;
 	
     public void onCreate(Bundle savedInstanceState) {
-      super.onCreate(savedInstanceState);        
+      super.onCreate(savedInstanceState);   
+      requestWindowFeature(Window.FEATURE_NO_TITLE);
       setContentView(R.layout.login); 
       
       mResources = getResources();
@@ -96,6 +107,17 @@ public class Login extends Activity{
 			 validar();		  
 		  }
 	  });
+      
+      rememberLogin.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+		@Override
+		public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
+			 if (rememberLogin.isChecked())
+           	  GAMApplication.getInstance().getPreferencesManager().setRememberLogin(true);
+             else
+           	  GAMApplication.getInstance().getPreferencesManager().setRememberLogin(false);
+		}
+
+      });
 			
 	  if (GAMApplication.getInstance().getPreferencesManager().getRememberLogin()) {
 			txtUser.setText(GAMApplication.getInstance().getPreferencesManager().getUser());
@@ -131,8 +153,9 @@ public class Login extends Activity{
 	public void onStart()
 	{
 		super.onStart();
-		
-		//loadData();
+		u=new Usuario();
+		crearUsuarios();
+		loadData();
 	}
 	
 	private void validar()
@@ -145,14 +168,21 @@ public class Login extends Activity{
         	//si pasamos esa validacion ejecutamos el asynctask pasando el usuario y clave como parametros
         	//new asynclogin().execute(user,pass);
     	   
-    	   GAMApplication.getInstance().getPreferencesManager().setUser(user);
-    	   GAMApplication.getInstance().getPreferencesManager().setPassword(pass);
-    	   
-    	   GAMApplication.getInstance().getPreferencesManager().setName(user);
-    	   
-    	   Intent i=new Intent(Login.this, ListaActivity.class);
-    	   Login.this.finish();
-    	   startActivity(i);
+    	   if(existeUsuario(user,pass))
+    	   {
+    		   GAMApplication.getInstance().getPreferencesManager().setUser(user);
+    		   GAMApplication.getInstance().getPreferencesManager().setPassword(pass);
+    		   GAMApplication.getInstance().getPreferencesManager().setName(u.getNombre());
+        	   
+        	   Intent i=new Intent(Login.this, ListaActivity.class);
+        	   Login.this.finish();
+        	   startActivity(i);
+    	   }
+    	   else
+    	   {
+    		   err_login();
+    	   }
+    	 
     	   
         }else{
         //si detecto un error en la primera validacion vibrar y mostrar un Toast con un mensaje de error.
@@ -164,8 +194,8 @@ public class Login extends Activity{
 	//vibra y muestra un Toast
     public void err_login()
     {
-    	Vibrator vibrator =(Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-    	vibrator.vibrate(200);
+    	if(GAMApplication.getInstance().getPreferencesManager().getVibracion())
+    			vibrator.vibrate(200);
     	Toast toast1 = Toast.makeText(getApplicationContext(),"Error:Nombre de usuario o password incorrectos", Toast.LENGTH_SHORT);
     	toast1.show();
     }
@@ -227,4 +257,31 @@ public class Login extends Activity{
 		{
 	  		finish();
 		}
+	    
+	    public void crearUsuarios()
+	    {
+	    	Usuario u1=new Usuario("carol","1234","Carol","12345678","ponce marin","941225689","carol@gmail.com");
+	    	Usuario u2=new Usuario("elena","4321","Elena","987654321","garcia fernandez","941362154","elena@gmail.com");
+	    	Usuario u3=new Usuario("oscar","1423","Oscar","192837465","mezquita gonzalez","941325541","oscar@gmail.com");
+	    	Usuario u4=new Usuario("eloy","1234","Eloy","12345678","mata","941225689","eloy@gmail.com");
+	    
+	    	datos.add(u1);
+	    	datos.add(u2);
+	    	datos.add(u3);
+	    	datos.add(u4);
+	    }
+	    
+	    public boolean existeUsuario(String user,String pass)
+	    {
+	    	boolean esta=false;
+	    	for(int i=0;i<datos.size();i++)
+	    	{
+	    		if(datos.get(i).getCuasi().equals(user) && datos.get(i).getPassword().equals(pass))
+	    		{
+	    			esta=true;
+	    			u=datos.get(i);
+	    		}
+	    	}
+			return esta;
+	    }
 }

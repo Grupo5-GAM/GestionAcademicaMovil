@@ -3,7 +3,9 @@ package com.example.gestionacademicamovil.GAM;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.gestionacademicamovil.GAM.ListaActivity.myAdapter;
 import com.example.gestionacademicamovil.GAM.model.Asignatura;
+import com.example.gestionacademicamovil.GAM.model.MenuPpal;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,6 +17,8 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -27,12 +31,13 @@ public class HorariosActivity extends Activity {
 	
 	private Bundle bundle;
 	private TextView usuario;
-	
-	private ArrayAdapter adapter1,adapter2;
+	private ArrayList<String> datos= new ArrayList<String>();
+	private myAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.horarios);
         
         usuario=(TextView)findViewById(R.id.usuario);
@@ -40,10 +45,9 @@ public class HorariosActivity extends Activity {
         
         list1= (ListView)findViewById(R.id.list1);
         list2= (ListView)findViewById(R.id.list2);
-        adapter1=ArrayAdapter.createFromResource(this,R.array.Cursos, android.R.layout.simple_spinner_item);
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        list1.setAdapter(adapter1);
-        list2.setAdapter(adapter1);
+        adapter=new myAdapter(this,R.layout.list_item_horarios,datos);
+        list1.setAdapter(adapter);
+        list2.setAdapter(adapter);
         
         list1.setOnItemClickListener(new OnItemClickListener() {
  	  	   @Override
@@ -100,17 +104,49 @@ public class HorariosActivity extends Activity {
    	  });
     }
     
+    class myAdapter extends ArrayAdapter<String>  {
+
+  		private final ArrayList<String> datos;
+
+  		public myAdapter(Context context,int textViewResourceId, ArrayList<String> items)
+  		{
+  			   super(context,textViewResourceId, items);
+  			   this.datos=items;
+  		}
+  		
+  		public View getView(final int position, View convertView, ViewGroup parent) {
+  			   View row = null;
+  			   
+  			   if (convertView != null) 
+  				   row = convertView;
+  			   LayoutInflater inflater = getLayoutInflater();
+  			   final String listDato = datos.get(position);
+  			 
+  			   if (row == null || row.getId() != R.layout.list_item)
+  				   row = inflater.inflate(R.layout.list_item, parent, false);
+  			
+  			 /*row.setOnClickListener(new OnClickListener() {
+				   public void onClick(View v) {
+  				   
+  			        }
+  			   });*/
+  			
+  			 TextView data1 = (TextView)row.findViewById(R.id.text1);
+  			 
+ 			 data1.setText(listDato);
+
+  			 return row;
+  		}
+  	}
+    
     public void onStart()
     {
     	super.onStart();
-    }
-    
-    public void onBackPressed() 
-	{
-		Intent i = new Intent();
-		i.setClass(HorariosActivity.this, ListaActivity.class);
-  		HorariosActivity.this.finish();
-  		startActivity(i);
-	 }
+    	datos.add("Primero");
+    	datos.add("Segundo");
+    	datos.add("Tercero");
+    	datos.add("Cuarto");
+    }   
+  
     
 }

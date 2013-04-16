@@ -15,15 +15,15 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@+id/label"
-			android:textSize="12dip"
+			android:textSize="16dip"
 			android:textStyle="bold"
-			android:textColor="@color/dark_gray" />
+			android:textColor="@color/black" />
 		<TextView
 			android:id="@+id/text2"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@+id/label"
-			android:textSize="10dip"
+			android:textSize="14dip"
 			android:textColor="@color/gray" />
 	</LinearLayout>
 	

@@ -30,10 +30,10 @@ public class Usuario {
 	public Usuario(String no,String n,String a,String t,String e)
 	{
 		setNombre(no);
-		setNIF("n");
-		setApellidos("a");
-		setTelefono("t");
-		setEmail("e");
+		setNIF(n);
+		setApellidos(a);
+		setTelefono(t);
+		setEmail(e);
 	}
 	
 	public Usuario(String u,String p,String no,String n,String a,String t,String e)
@@ -41,10 +41,10 @@ public class Usuario {
 		setCuasi(u);
 		setPassword(p);
 		setNombre(no);
-		setNIF("n");
-		setApellidos("a");
-		setTelefono("t");
-		setEmail("e");
+		setNIF(n);
+		setApellidos(a);
+		setTelefono(t);
+		setEmail(e);
 	}
 
 	public String getPassword() {

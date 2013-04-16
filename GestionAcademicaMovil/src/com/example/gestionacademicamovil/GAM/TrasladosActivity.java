@@ -2,39 +2,47 @@ package com.example.gestionacademicamovil.GAM;
 
 import java.util.ArrayList;
 
+import com.example.gestionacademicamovil.GAM.managers.CrearPDF;
 import com.example.gestionacademicamovil.GAM.model.Asignatura;
 import com.example.gestionacademicamovil.GAM.model.Traslado;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class TrasladosActivity extends Activity 
 {
 	private ListView list;
 	
 	private Bundle bundle;
-	private String grado;
 	private TextView usuario;
 	
 	private miAdapter adapter;
+	private Button btDescargar;
 	
 	private ArrayList<Traslado> datos=new ArrayList<Traslado>();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		 super.onCreate(savedInstanceState);
+		 requestWindowFeature(Window.FEATURE_NO_TITLE);
          setContentView(R.layout.traslados);
         
 		 bundle=getIntent().getExtras();
-	     grado=bundle.getString("grado");
 	        
 	     usuario=(TextView)findViewById(R.id.usuario);
 	     usuario.setText(GAMApplication.getInstance().getPreferencesManager().getName());
@@ -42,16 +50,56 @@ public class TrasladosActivity extends Activity
 	     list= (ListView)findViewById(R.id.list);
 	     adapter=new miAdapter(this,R.layout.traslados_item,datos);
 	     list.setAdapter(adapter);
+	     btDescargar=(Button)findViewById(R.id.btDescargar);
+	     if(datos.size()==0)
+	     {
+	    	 Toast toast = Toast.makeText(getApplicationContext(), "No hay datos", Toast.LENGTH_SHORT);	//Colocar un dialogalert		 
+			 btDescargar.setEnabled(false);
+			 toast.show(); 
+			 TrasladosActivity.this.finish();
+	     }
+	     btDescargar.setOnClickListener(new OnClickListener(){
+			  @SuppressWarnings("deprecation")
+			public void onClick(View view)
+			  {
+				 CrearPDF crearpdf= new CrearPDF(datos);				 
+				 Toast toast = Toast.makeText(getApplicationContext(), "Descargando...", Toast.LENGTH_SHORT);
+				 toast.show();
+				 crearpdf.descargarPDFTraslados();
+				 String ns = Context.NOTIFICATION_SERVICE;
+				 NotificationManager notManager =  (NotificationManager) getSystemService(ns);
+				 int icono = android.R.drawable.stat_sys_download;		 
+				 
+				 CharSequence textoEstado = "Descargado!";
+				 long hora = System.currentTimeMillis();				  
+				 Notification notif =  new Notification(icono, textoEstado, hora);
+				 Context contexto = getApplicationContext();
+				 CharSequence titulo = "Carga completa";
+				 CharSequence descripcion = "Archivo descargado correctamente";
+				  
+				 Intent notIntent = null;
+				 notIntent=new Intent(contexto, VerPDFTrasladosActivity.class);
+				 notIntent.putExtra("fichero","Traslados.pdf");
+				 PendingIntent contIntent = PendingIntent.getActivity(contexto, 0, notIntent, 0);
+				  
+				 notif.setLatestEventInfo(contexto, titulo, descripcion, contIntent);
+				 notif.flags |= Notification.FLAG_AUTO_CANCEL;				 
+				 notManager.notify(1, notif);
+				
+				 
+    	             	         
+			  }
+		  });
 	}
 	
 	public void onStart()
     {
     	super.onStart();
     	
-    	Traslado a1=new Traslado();
-    	Traslado a2=new Traslado();
+    	/*Traslado a1=new Traslado("Universidad de Madrid","Madrid","España");
+    	Traslado a2=new Traslado("Universidad de Bilbao","Bilbao","España");
         datos.add(a1);
-        datos.add(a2);
+        datos.add(a2);*/
     }
 	
 	class miAdapter extends ArrayAdapter<Traslado>  {
@@ -86,15 +134,7 @@ public class TrasladosActivity extends Activity
 			 return row;
 		 
 		}
-	}
-	
-	public void onBackPressed() 
-	{
-		Intent i = new Intent();
-		i.setClass(TrasladosActivity.this, ListaActivity.class);
-  		startActivity(i);
-  		TrasladosActivity.this.finish();
-	 }
+	}	
 	
 	
 }

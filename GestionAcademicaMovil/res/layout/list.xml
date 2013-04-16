@@ -28,7 +28,7 @@
        android:layout_height="0.5dp"
        android:background="@color/dark_gray"/>
 
-    <LinearLayout 
+    <!-- <LinearLayout 
 		android:orientation="vertical"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
 			android:textSize="14dip"
 			android:textStyle="bold"
 			android:textColor="@color/white" />
-		</LinearLayout>
+		</LinearLayout> -->
 		
     <LinearLayout 
        android:orientation="horizontal"

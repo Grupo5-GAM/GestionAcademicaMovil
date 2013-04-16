@@ -40,5 +40,9 @@
         <item>Cuarto</item>
     </string-array>
     
+     <string-array name="app">
+        <item>About</item>
+        <item>Help</item>
+    </string-array>
 
 </resources>

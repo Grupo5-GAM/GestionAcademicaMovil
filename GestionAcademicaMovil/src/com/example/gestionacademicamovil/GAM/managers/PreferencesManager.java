@@ -127,15 +127,30 @@ public class PreferencesManager {
 		return preferences.getBoolean(PreferencesConstants.REMEMBER_LOGIN, PreferencesConstants.REMEMBER_LOGIN_DEFAULT);
 	}
 	
-	/**
-	 * Sets the remember login setting new value.
-	 * 
-	 * @param time Remember login setting new value.
-	 */
 	public void setRememberLogin(boolean rememberLogin) {
 		editor.putBoolean(PreferencesConstants.REMEMBER_LOGIN, rememberLogin);
 		editor.commit();
 	}
+	
+	public boolean getSonido() {
+		return preferences.getBoolean(PreferencesConstants.SONIDO, PreferencesConstants.SONIDO_DEFAULT);
+	}
+	
+	public void setSonido(boolean sonido) {
+		editor.putBoolean(PreferencesConstants.SONIDO, sonido);
+		editor.commit();
+	}
+
+	public boolean getVibracion() {
+		return preferences.getBoolean(PreferencesConstants.VIBRACION, PreferencesConstants.VIBRACION_DEFAULT);
+	}
+	
+	public void setVibracion(boolean vibracion) {
+		editor.putBoolean(PreferencesConstants.VIBRACION, vibracion);
+		editor.commit();
+	}
+	
+	
 	
 	/**
 	 * Retrieves the shared preferences instance.

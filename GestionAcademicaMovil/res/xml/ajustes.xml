@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="main preferences">
+ 
+ <PreferenceCategory
+   android:summary="Notificaciones"
+   android:title="Notificaciones" >
+  <CheckBoxPreference
+     android:key="cbVibracion"
+     android:summary="Activar/desactivar vibracion"
+     android:title="Vibrar"
+     android:defaultValue="true" />
+  
+  <CheckBoxPreference
+     android:key="cbSonido"
+     android:summary="Activar/desactivar sonido"
+     android:title="Sonido"
+     android:defaultValue="true" />
+  
+  <!--  <ListPreference
+     android:entries=""
+     android:entryValues=""
+     android:key="listpref"
+     android:title="Volumen" />-->
+ </PreferenceCategory>
+ <PreferenceCategory
+   android:summary="Aplicacion"
+   android:title="Aplicacion" >
+   <Preference android:title="About"
+  		android:summary="Information about this application" android:key="about" />
+  </PreferenceCategory>
+ 
+</PreferenceScreen>
