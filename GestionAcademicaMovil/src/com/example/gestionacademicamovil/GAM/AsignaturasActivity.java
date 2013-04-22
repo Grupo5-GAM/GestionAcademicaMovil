@@ -106,10 +106,10 @@ public class AsignaturasActivity extends Activity {
     public void crearDatos()
     {
 
-    	Asignatura a1=new Asignatura("Grado Administracion de empresas","Informática Movil",6,"Eloy Mata","http://Informaticamovil");
-    	Asignatura a2=new Asignatura("Grado Informática","Instalaciones de Computadores",6,"Javier","http://Instalacion");
-    	Asignatura a3=new Asignatura("Grado Matematicas","Arquitectura de computadores",6,"Ivan","http://Arquitectura");
-    	Asignatura a4=new Asignatura("Grado Informática","Estructuras de computadores",6,"Ivan","http://Estructuras");
+    	Asignatura a1=new Asignatura("Grado en Ingeniería agricola","Informática Movil",6,"Eloy Mata","http://Informaticamovil");
+    	Asignatura a2=new Asignatura("Grado en Ingeniería Informática","Instalaciones de Computadores",6,"Javier","http://Instalacion");
+    	Asignatura a3=new Asignatura("Grado en Matematicas","Arquitectura de computadores",6,"Ivan","http://Arquitectura");
+    	Asignatura a4=new Asignatura("Grado en Ingeniería Informática","Estructuras de computadores",6,"Ivan","http://Estructuras");
         datos.add(a1);
         datos.add(a2);
         datos.add(a3);

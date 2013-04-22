@@ -25,43 +25,20 @@ public class PreferencesManager {
 	private SharedPreferences preferences;
 	
 	private Editor editor;
-	
-	/**
-	 * Class constructor. Instances a new object of type PreferencesManager
-	 * to manage all the iDigi service preferences.
-	 * 
-	 * @param context The application context.
-	 */
+
 	public PreferencesManager(Context context) {
 		preferences = PreferenceManager.getDefaultSharedPreferences(context);
 		editor = preferences.edit();
 	}
-	
-	/**
-	 * Retrieves the Alias setting value.
-	 * 
-	 * @return Alias setting value, default one if not configured.
-	 */
+
 	public String getName() {
 		return preferences.getString(PreferencesConstants.NAME, PreferencesConstants.NAME_DEFAULT);
 	}
 	
-	/**
-	 * Sets the Alias setting new value.
-	 * 
-	 * @param alias Alias setting new value.
-	 */
 	public void setName(String name) {
 		editor.putString(PreferencesConstants.NAME, name);
 		editor.commit();
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	/*public List<String> getAllUser() {
 		Map<String,?> AllData=preferences.getAll();
@@ -78,51 +55,33 @@ public class PreferencesManager {
 		return usuarios;
 	}*/
 	
-	/**
-	 * Retrieves the Email setting value.
-	 * 
-	 * @return Email setting value, default one if not configured.
-	 */
 	public String getUser() {
 		return preferences.getString(PreferencesConstants.USER, PreferencesConstants.USER_DEFAULT);
 	}
-	
-	/**
-	 * Sets the Email setting new value.
-	 * 
-	 * @param email Email setting new value.
-	 */
+
 	public void setUser(String user) {
 		editor.putString(PreferencesConstants.USER, user);
 		editor.commit();
 	}
 	
-	/**
-	 * Retrieves the Password setting value.
-	 * 
-	 * @return Password setting value, default one if not configured.
-	 */
+	public String getGrado() {
+		return preferences.getString(PreferencesConstants.GRADO, PreferencesConstants.GRADO_DEFAULT);
+	}
+
+	public void setGrado(String grado) {
+		editor.putString(PreferencesConstants.GRADO, grado);
+		editor.commit();
+	}
+	
 	public String getPassword() {
 		return preferences.getString(PreferencesConstants.PASSWORD, PreferencesConstants.PASSWORD_DEFAULT);
 	}
-	
-	/**
-	 * Sets the Password setting new value.
-	 * 
-	 * @param password Password setting new value.
-	 */
+
 	public void setPassword(String password) {
 		editor.putString(PreferencesConstants.PASSWORD, password);
 		editor.commit();
 	}
-	
-	
-	
-	/**
-	 * Retrieves the remember login setting value.
-	 * 
-	 * @return Remember login setting value, default one if not configured.
-	 */
+
 	public boolean getRememberLogin() {
 		return preferences.getBoolean(PreferencesConstants.REMEMBER_LOGIN, PreferencesConstants.REMEMBER_LOGIN_DEFAULT);
 	}
@@ -150,13 +109,7 @@ public class PreferencesManager {
 		editor.commit();
 	}
 	
-	
-	
-	/**
-	 * Retrieves the shared preferences instance.
-	 * 
-	 * @return The shared preferences instance.
-	 */
+
 	public SharedPreferences getSharedPreferences() {
 		return preferences;
 	}

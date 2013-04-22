@@ -63,6 +63,11 @@ public class MatriculaActivity extends Activity {
         telefono.setText(alumno2.getTelefono());
         email.setText(alumno2.getEmail());
         
+        grado.setText(alumno2.getGrado());
+        curso.setText(alumno2.getCurso());
+        fecha_matricula.setText(alumno2.getFecha_matricula());
+        forma_pago.setText(alumno2.getForma_pago());
+        importe.setText(alumno2.getImporte());
     }
     
     public void OnStart()
@@ -73,11 +78,11 @@ public class MatriculaActivity extends Activity {
 
     public void crearUsuarios()
     {
-    	Usuario u1=new Usuario("carol","1234","Carol","12345678","ponce marin","941225689","carol@gmail.com");
-    	Usuario u2=new Usuario("elena","4321","Elena","987654321","garcia fernandez","941362154","elena@gmail.com");
-    	Usuario u3=new Usuario("oscar","1423","Oscar","192837465","mezquita gonzalez","941325541","oscar@gmail.com");
-    	Usuario u4=new Usuario("eloy","1234","Eloy","12345678","mata","941225689","eloy@gmail.com");
-    
+    	Usuario u1=new Usuario("carol","1234","Carol","12345678","ponce marin","941225689","carol@gmail.com","Grado en Ingeniería Informática","2012/2013","18/08/2012","Domiciliacion","985.54");
+    	Usuario u2=new Usuario("elena","4321","Elena","987654321","garcia fernandez","941362154","elena@gmail.com","Grado en Ingeniería Informática","2012/2013","20/08/2012","Domiciliacion","1200");
+    	Usuario u3=new Usuario("oscar","1423","Oscar","192837465","mezquita gonzalez","941325541","oscar@gmail.com","Grado en Matematicas","2012/2013","22/08/2012","Domiciliacion","1145.50");
+    	Usuario u4=new Usuario("eloy","1234","Eloy","12345678","mata","941225689","eloy@gmail.com","Grado en Ingeniería agricola","2012/2013","25/08/2012","Domiciliacion","840.79");
+   
     	datos.add(u1);
     	datos.add(u2);
     	datos.add(u3);

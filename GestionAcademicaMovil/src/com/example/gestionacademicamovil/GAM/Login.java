@@ -172,6 +172,7 @@ public class Login extends Activity{
     	   {
     		   GAMApplication.getInstance().getPreferencesManager().setUser(user);
     		   GAMApplication.getInstance().getPreferencesManager().setPassword(pass);
+    		   GAMApplication.getInstance().getPreferencesManager().setGrado(u.getGrado());
     		   GAMApplication.getInstance().getPreferencesManager().setName(u.getNombre());
         	   
         	   Intent i=new Intent(Login.this, ListaActivity.class);
@@ -260,10 +261,10 @@ public class Login extends Activity{
 	    
 	    public void crearUsuarios()
 	    {
-	    	Usuario u1=new Usuario("carol","1234","Carol","12345678","ponce marin","941225689","carol@gmail.com");
-	    	Usuario u2=new Usuario("elena","4321","Elena","987654321","garcia fernandez","941362154","elena@gmail.com");
-	    	Usuario u3=new Usuario("oscar","1423","Oscar","192837465","mezquita gonzalez","941325541","oscar@gmail.com");
-	    	Usuario u4=new Usuario("eloy","1234","Eloy","12345678","mata","941225689","eloy@gmail.com");
+	    	Usuario u1=new Usuario("carol","1234","Carol","12345678","ponce marin","941225689","carol@gmail.com","Grado en Ingeniería Informática","2012/2013","18/08/2012","Domiciliacion","985.54");
+	    	Usuario u2=new Usuario("elena","4321","Elena","987654321","garcia fernandez","941362154","elena@gmail.com","Grado en Ingeniería Informática","2012/2013","20/08/2012","Domiciliacion","1200");
+	    	Usuario u3=new Usuario("oscar","1423","Oscar","192837465","mezquita gonzalez","941325541","oscar@gmail.com","Grado en Matematicas","2012/2013","22/08/2012","Domiciliacion","1145.50");
+	    	Usuario u4=new Usuario("eloy","1234","Eloy","12345678","mata","941225689","eloy@gmail.com","Grado en Ingeniería agricola","2012/2013","25/08/2012","Domiciliacion","840.79");
 	    
 	    	datos.add(u1);
 	    	datos.add(u2);

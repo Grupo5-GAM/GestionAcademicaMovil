@@ -16,6 +16,12 @@ public class Usuario {
 	private String telefono;
 	private String email;
 	
+	private String grado;
+	private String curso;
+	private String fecha_matricula;
+	private String forma_pago;
+	private String importe;
+	
 	public Usuario()
 	{
 		setCuasi("ddd");
@@ -27,7 +33,7 @@ public class Usuario {
 		setEmail("ddd");
 	}
 	
-	public Usuario(String no,String n,String a,String t,String e)
+	public Usuario(String no,String n,String a,String t,String e,String g,String c,String f,String fp,String i)
 	{
 		setNombre(no);
 		setNIF(n);
@@ -36,7 +42,7 @@ public class Usuario {
 		setEmail(e);
 	}
 	
-	public Usuario(String u,String p,String no,String n,String a,String t,String e)
+	public Usuario(String u,String p,String no,String n,String a,String t,String e,String g,String c,String f,String fp,String i)
 	{
 		setCuasi(u);
 		setPassword(p);
@@ -45,6 +51,11 @@ public class Usuario {
 		setApellidos(a);
 		setTelefono(t);
 		setEmail(e);
+		setGrado(g);
+		setCurso(c);
+		setFecha_matricula(f);
+		setForma_pago(fp);
+		setImporte(i);
 	}
 
 	public String getPassword() {
@@ -101,6 +112,46 @@ public class Usuario {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getGrado() {
+		return grado;
+	}
+
+	public void setGrado(String grado) {
+		this.grado = grado;
+	}
+
+	public String getCurso() {
+		return curso;
+	}
+
+	public void setCurso(String curso) {
+		this.curso = curso;
+	}
+
+	public String getFecha_matricula() {
+		return fecha_matricula;
+	}
+
+	public void setFecha_matricula(String fecha_matricula) {
+		this.fecha_matricula = fecha_matricula;
+	}
+
+	public String getForma_pago() {
+		return forma_pago;
+	}
+
+	public void setForma_pago(String forma_pago) {
+		this.forma_pago = forma_pago;
+	}
+
+	public String getImporte() {
+		return importe;
+	}
+
+	public void setImporte(String importe) {
+		this.importe = importe;
 	}
 	
 	/*@Override
