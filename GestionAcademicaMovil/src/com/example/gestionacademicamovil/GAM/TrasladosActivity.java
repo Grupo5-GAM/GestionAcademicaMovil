@@ -43,6 +43,7 @@ public class TrasladosActivity extends Activity
          setContentView(R.layout.traslados);
         
 		 bundle=getIntent().getExtras();
+		 crearDatos();
 	        
 	     usuario=(TextView)findViewById(R.id.usuario);
 	     usuario.setText(GAMApplication.getInstance().getPreferencesManager().getName());
@@ -53,9 +54,8 @@ public class TrasladosActivity extends Activity
 	     btDescargar=(Button)findViewById(R.id.btDescargar);
 	     if(datos.size()==0)
 	     {
-	    	 Toast toast = Toast.makeText(getApplicationContext(), "No hay datos", Toast.LENGTH_SHORT);	//Colocar un dialogalert		 
+	    	 GAMApplication.getInstance().showToast("No hay datos");	//Colocar un dialogalert		 
 			 btDescargar.setEnabled(false);
-			 toast.show(); 
 			 TrasladosActivity.this.finish();
 	     }
 	     btDescargar.setOnClickListener(new OnClickListener(){
@@ -63,8 +63,7 @@ public class TrasladosActivity extends Activity
 			public void onClick(View view)
 			  {
 				 CrearPDF crearpdf= new CrearPDF(datos);				 
-				 Toast toast = Toast.makeText(getApplicationContext(), "Descargando...", Toast.LENGTH_SHORT);
-				 toast.show();
+				 GAMApplication.getInstance().showToast("Descargando...");
 				 crearpdf.descargarPDFTraslados();
 				 String ns = Context.NOTIFICATION_SERVICE;
 				 NotificationManager notManager =  (NotificationManager) getSystemService(ns);
@@ -96,11 +95,16 @@ public class TrasladosActivity extends Activity
     {
     	super.onStart();
     	
+    }
+	
+	private void crearDatos()
+	{
+
     	/*Traslado a1=new Traslado("Universidad de Madrid","Madrid","España");
     	Traslado a2=new Traslado("Universidad de Bilbao","Bilbao","España");
         datos.add(a1);
         datos.add(a2);*/
-    }
+	}
 	
 	class miAdapter extends ArrayAdapter<Traslado>  {
 

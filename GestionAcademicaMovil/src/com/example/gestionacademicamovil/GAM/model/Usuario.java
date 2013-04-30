@@ -18,19 +18,27 @@ public class Usuario {
 	
 	private String grado;
 	private String curso;
+	private String curso2;
 	private String fecha_matricula;
 	private String forma_pago;
 	private String importe;
 	
 	public Usuario()
 	{
-		setCuasi("ddd");
-		setPassword("ddd");
-		setNombre("ddd");
-		setNIF("ddd");
-		setApellidos("ddd");
-		setTelefono("ddd");
-		setEmail("ddd");
+		setCuasi("");
+		setPassword("");
+		setNombre("");
+		setNIF("");
+		setApellidos("");
+		setTelefono("");
+		setEmail("");
+		
+		setGrado("g");
+		setCurso("c");
+		setCurso2("c2");
+		setFecha_matricula("f");
+		setForma_pago("fp");
+		setImporte("i");
 	}
 	
 	public Usuario(String no,String n,String a,String t,String e,String g,String c,String f,String fp,String i)
@@ -42,7 +50,7 @@ public class Usuario {
 		setEmail(e);
 	}
 	
-	public Usuario(String u,String p,String no,String n,String a,String t,String e,String g,String c,String f,String fp,String i)
+	public Usuario(String u,String p,String no,String n,String a,String t,String e,String g,String c,String c2,String f,String fp,String i)
 	{
 		setCuasi(u);
 		setPassword(p);
@@ -53,6 +61,7 @@ public class Usuario {
 		setEmail(e);
 		setGrado(g);
 		setCurso(c);
+		setCurso2(c2);
 		setFecha_matricula(f);
 		setForma_pago(fp);
 		setImporte(i);
@@ -152,6 +161,14 @@ public class Usuario {
 
 	public void setImporte(String importe) {
 		this.importe = importe;
+	}
+
+	public String getCurso2() {
+		return curso2;
+	}
+
+	public void setCurso2(String curso2) {
+		this.curso2 = curso2;
 	}
 	
 	/*@Override

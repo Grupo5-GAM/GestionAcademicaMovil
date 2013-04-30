@@ -13,8 +13,12 @@ import org.json.JSONObject;
 import com.example.gestionacademicamovil.GAM.model.Asignatura;
 import com.example.gestionacademicamovil.GAM.model.Usuario;
 
+//import es.unirioja.ae.academico.api.jws.PersonasService;
+//import es.unirioja.ae.academico.api.jws.SecurityToken;
+
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -153,9 +157,35 @@ public class Login extends Activity{
 	public void onStart()
 	{
 		super.onStart();
-		u=new Usuario();
-		crearUsuarios();
-		loadData();
+		
+		if(GAMApplication.getInstance().internetAvailable())
+		{
+			u=new Usuario();
+			crearUsuarios();
+			loadData();
+		}
+		else
+		{
+			Dialog d=crearDialogoInformacion();
+			d.show();
+		}
+		
+	}
+	
+	private Dialog crearDialogoInformacion()
+	{
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		 
+	    builder.setTitle("Informacion");
+	    builder.setMessage("Compruebe su conexion a Internet");
+	    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+            	dialog.cancel();
+            	finish();
+              }
+            });
+	 
+	    return builder.create();
 	}
 	
 	private void validar()
@@ -168,8 +198,13 @@ public class Login extends Activity{
         	//si pasamos esa validacion ejecutamos el asynctask pasando el usuario y clave como parametros
         	//new asynclogin().execute(user,pass);
     	   
+    	   /*SecurityToken token=new SecurityToken();
+   		   token.setUsername(GAMApplication.getInstance().getPreferencesManager().getUser());
+   		   token.setPasswd(GAMApplication.getInstance().getPreferencesManager().getPassword());*/
+    	   
+    	   //if(!GAMApplication.getInstance().getUsuarioManager().getUsuario(token).getNombre().equals(""))
     	   if(existeUsuario(user,pass))
-    	   {
+   		   {
     		   GAMApplication.getInstance().getPreferencesManager().setUser(user);
     		   GAMApplication.getInstance().getPreferencesManager().setPassword(pass);
     		   GAMApplication.getInstance().getPreferencesManager().setGrado(u.getGrado());
@@ -183,6 +218,10 @@ public class Login extends Activity{
     	   {
     		   err_login();
     	   }
+    	   
+    	   Intent i=new Intent(Login.this, ListaActivity.class);
+    	   Login.this.finish();
+    	   startActivity(i);
     	 
     	   
         }else{
@@ -197,8 +236,7 @@ public class Login extends Activity{
     {
     	if(GAMApplication.getInstance().getPreferencesManager().getVibracion())
     			vibrator.vibrate(200);
-    	Toast toast1 = Toast.makeText(getApplicationContext(),"Error:Nombre de usuario o password incorrectos", Toast.LENGTH_SHORT);
-    	toast1.show();
+    	GAMApplication.getInstance().showToast("Error:Nombre de usuario o password incorrectos");
     }
   
     //validamos si no hay ningun campo en blanco
@@ -261,10 +299,10 @@ public class Login extends Activity{
 	    
 	    public void crearUsuarios()
 	    {
-	    	Usuario u1=new Usuario("carol","1234","Carol","12345678","ponce marin","941225689","carol@gmail.com","Grado en Ingeniería Informática","2012/2013","18/08/2012","Domiciliacion","985.54");
-	    	Usuario u2=new Usuario("elena","4321","Elena","987654321","garcia fernandez","941362154","elena@gmail.com","Grado en Ingeniería Informática","2012/2013","20/08/2012","Domiciliacion","1200");
-	    	Usuario u3=new Usuario("oscar","1423","Oscar","192837465","mezquita gonzalez","941325541","oscar@gmail.com","Grado en Matematicas","2012/2013","22/08/2012","Domiciliacion","1145.50");
-	    	Usuario u4=new Usuario("eloy","1234","Eloy","12345678","mata","941225689","eloy@gmail.com","Grado en Ingeniería agricola","2012/2013","25/08/2012","Domiciliacion","840.79");
+	    	Usuario u1=new Usuario("carol","1234","Carol","12345678","ponce marin","941225689","carol@gmail.com","Grado en Ingeniería Informática","2012/2013","3","18/08/2012","Domiciliacion","985.54");
+	    	Usuario u2=new Usuario("elena","4321","Elena","987654321","garcia fernandez","941362154","elena@gmail.com","Grado en Ingeniería Informática","2012/2013","3","20/08/2012","Domiciliacion","1200");
+	    	Usuario u3=new Usuario("oscar","1423","Oscar","192837465","mezquita gonzalez","941325541","oscar@gmail.com","Grado en Matematicas","2012/2013","3","22/08/2012","Domiciliacion","1145.50");
+	    	Usuario u4=new Usuario("eloy","1234","Eloy","12345678","mata","941225689","eloy@gmail.com","Grado en Ingeniería agricola","2012/2013","2","25/08/2012","Domiciliacion","840.79");
 	    
 	    	datos.add(u1);
 	    	datos.add(u2);

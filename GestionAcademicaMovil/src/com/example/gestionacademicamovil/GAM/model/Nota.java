@@ -4,25 +4,28 @@ public class Nota {
 
 	private int cuatrimestre;
 	private String asignatura;
+	private String grado;
 	private int creditos;
 	private double nota;
-	private boolean definitiva;
+	private String definitiva;
 	private String revision;
 	
 	public Nota()
 	{
 		this.cuatrimestre=1;
 		this.asignatura="TOO";
+		this.grado="";
 		this.creditos=6;
 		this.nota=8.5;
-		this.definitiva=true;
+		this.definitiva="";
 		this.revision="desp 350 12/05/2013";
 	}
 	
-	public Nota(int cu,String a,int c,double n,boolean d,String r)
+	public Nota(int cu,String a,String g,int c,double n,String d,String r)
 	{
 		this.cuatrimestre=cu;
 		this.asignatura=a;
+		this.grado=g;
 		this.creditos=c;
 		this.nota=n;
 		this.definitiva=d;
@@ -53,10 +56,10 @@ public class Nota {
 	public void setNota(double nota) {
 		this.nota = nota;
 	}
-	public boolean isDefinitiva() {
+	public String isDefinitiva() {
 		return definitiva;
 	}
-	public void setDefinitiva(boolean definitiva) {
+	public void setDefinitiva(String definitiva) {
 		this.definitiva = definitiva;
 	}
 	public String getRevision() {
@@ -64,6 +67,14 @@ public class Nota {
 	}
 	public void setRevision(String revision) {
 		this.revision = revision;
+	}
+
+	public String getGrado() {
+		return grado;
+	}
+
+	public void setGrado(String grado) {
+		this.grado = grado;
 	}
 	
 }

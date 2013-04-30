@@ -107,26 +107,4 @@
             android:clickable="true"
             android:listSelector="#EFD3D2"/>
     </LinearLayout>
-    
-    <LinearLayout 
-	    android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:paddingLeft="110dp" 
-        android:paddingBottom="10dp">
-            	
-        <Button 
-            android:id="@+id/btDescargar"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:minWidth="70dp"
-            android:minHeight="20dp"
-            android:text="Descargar PDF" 
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="12sp"
-            android:padding="5dp"
-            android:background="@drawable/button"/>
-    </LinearLayout>
 </LinearLayout>

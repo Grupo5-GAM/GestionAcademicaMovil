@@ -38,6 +38,7 @@ public class ListaActivity extends Activity {
 	private ArrayAdapter adapter1,adapter2,adapter3,adapter4;
 	private Dialog dialog;
 	private myAdapter myAdapter;
+	private static final String googleDocsUrl = "http://docs.google.com/viewer?url=";
 	private ArrayList<MenuPpal> datos= new ArrayList<MenuPpal>();
 	
 	private String grado;
@@ -56,6 +57,7 @@ public class ListaActivity extends Activity {
       bundle=getIntent().getExtras();
       
       grado=GAMApplication.getInstance().getPreferencesManager().getGrado();
+      //GAMApplication.getInstance().showToast(grado);
 
       usuario=(TextView)findViewById(R.id.usuario);
       usuario.setText(GAMApplication.getInstance().getPreferencesManager().getName());
@@ -126,7 +128,9 @@ public class ListaActivity extends Activity {
  			    	 }
  			    	 else if(position==1)
  			    	 {
- 			    		crearDialogoSeleccionGrado();
+ 			    		i.setClass(ListaActivity.this, AsignaturasActivity.class);
+ 			    		startActivity(i);
+ 			    		//crearDialogoSeleccionGrado();
  			    	 }
  			    	 else if(position==2)
  			    	 {
@@ -236,17 +240,17 @@ public class ListaActivity extends Activity {
     	        
     	        if(item==0)
         		{
-        			i.setClass(ListaActivity.this, AsignaturasActivity.class);
+        			i.setClass(ListaActivity.this, AsignaturasActivity1.class);
             		i.putExtra("grado","Grado en Ingeniería agricola");
         		}
         		else if(item==1)
         		{
-        			i.setClass(ListaActivity.this,  AsignaturasActivity.class);
+        			i.setClass(ListaActivity.this,  AsignaturasActivity1.class);
         			i.putExtra("grado","Grado en Ingeniería Informática");
         		}
         		else
         		{
-        			i.setClass(ListaActivity.this,  AsignaturasActivity.class);
+        			i.setClass(ListaActivity.this,  AsignaturasActivity1.class);
         			i.putExtra("grado","Grado en Matematicas");
         		}
     	        
@@ -275,22 +279,59 @@ public class ListaActivity extends Activity {
     	        if(item==0)
         		{
     	        	if(grado.equals("Grado en Ingeniería Informática"))
-    	        		i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_enero_801.pdf"));
+    	        	{
+    	        	
+    	        	   i.setAction(android.content.Intent.ACTION_VIEW);
+		    	       String url="http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_enero_801.pdf";
+		    		   i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");	
+    	        		
+    	        	  //i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_enero_801.pdf"));
+    	        	}
 		    		else if(grado.equals("Grado en Ingeniería agricola"))
-		    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_enero_802.pdf"));
+		    		{
+		    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    	    String url="http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_enero_802.pdf";
+			    		i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+			    		
+		    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_enero_802.pdf"));
+		    		}
 		    		else
-		    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_enero_mat.pdf"));
+		    		{
+		    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    	    String url="http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_enero_mat.pdf";
+			    		i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+		    			
+		    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_enero_mat.pdf"));
+		    		}
 		    		
 		    	    startActivity(i);
         		}
         		else if(item==1)
         		{
         			if(grado.equals("Grado en Ingeniería Informática"))
-        				i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_mayo_801.pdf"));
+        			{
+        				i.setAction(android.content.Intent.ACTION_VIEW);
+			    	    String url="http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_mayo_801.pdf";
+			    		i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+			    		
+        				//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_mayo_801.pdf"));
+        			}
  		    	   else if(grado.equals("Grado en Ingeniería agricola"))
-		    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_mayo_802.pdf"));
-		    		else
-		    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_mayo_mat.pdf"));
+ 		    	   {
+ 		    		   i.setAction(android.content.Intent.ACTION_VIEW);
+			    	   String url="http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_mayo_802.pdf";
+			    	   i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");	
+ 		    		   
+ 		    		   //i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_mayo_802.pdf"));
+ 		    	   }
+		    	   else
+		    	   {
+		    		   i.setAction(android.content.Intent.ACTION_VIEW);
+			    	   String url="http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_mayo_mat.pdf";
+			    	   i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+		    		   
+		    		   //i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_mayo_mat.pdf"));
+		    	   }
         			
         			 startActivity(i);
         		}
@@ -298,11 +339,29 @@ public class ListaActivity extends Activity {
         		{
         			
         			if(grado.equals("Grado en Ingeniería Informática"))
-        				i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_junio_801.pdf"));
+        			{
+        			   i.setAction(android.content.Intent.ACTION_VIEW);
+  			    	   String url="http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_junio_801.pdf";
+  			    	   i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+        				
+  			    	   //i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_junio_801.pdf"));
+        			}
  		    	    else if(grado.equals("Grado en Ingeniería agricola"))
-		    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_junio_802.pdf"));
+ 		    	    {
+ 		    	       i.setAction(android.content.Intent.ACTION_VIEW);
+   			    	   String url="http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_junio_802.pdf";
+   			    	   i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+ 		    	    	
+   			    	   //i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_junio_802.pdf"));
+ 		    	    }
 		    		else
-		    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_junio_mat.pdf"));
+		    		{
+		    			i.setAction(android.content.Intent.ACTION_VIEW);
+	   			    	String url="http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_junio_mat.pdf";
+	   			    	i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+		    			
+		    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_junio_mat.pdf"));
+		    		}
 		    		
         			 startActivity(i);
         		}

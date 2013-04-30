@@ -14,7 +14,7 @@ import com.example.gestionacademicamovil.GAM.managers.UsuarioManager;
 //import com.example.gestionacademicamovil.GAM.model.SecurityToken;
 import com.example.gestionacademicamovil.GAM.model.Usuario;
 
-import es.unirioja.ae.academico.api.jws.SecurityToken;
+//import es.unirioja.ae.academico.api.jws.SecurityToken;
 
 public class MatriculaActivity extends Activity {
 	
@@ -50,13 +50,13 @@ public class MatriculaActivity extends Activity {
         importe=(TextView)findViewById(R.id.importe);
         
         alumno1=new Usuario();
-        alumno2=getUsuario(GAMApplication.getInstance().getPreferencesManager().getUser(),GAMApplication.getInstance().getPreferencesManager().getPassword());
         /*token=new SecurityToken();
 		token.setUsername(GAMApplication.getInstance().getPreferencesManager().getUser());
-		token.setUsername(GAMApplication.getInstance().getPreferencesManager().getPassword());
-		
-    */
+		token.setPasswd(GAMApplication.getInstance().getPreferencesManager().getPassword());
+		alumno2=GAMApplication.getInstance().getUsuarioManager().getUsuario(token);*/
         
+        alumno2=getUsuario(GAMApplication.getInstance().getPreferencesManager().getUser(),GAMApplication.getInstance().getPreferencesManager().getPassword());
+
         documento.setText(alumno2.getNIF());
         nombre.setText(alumno2.getNombre());
         apellidos.setText(alumno2.getApellidos());
@@ -70,19 +70,13 @@ public class MatriculaActivity extends Activity {
         importe.setText(alumno2.getImporte());
     }
     
-    public void OnStart()
-    {
-    	super.onStart();
-    	crearUsuarios();
-    }
-
     public void crearUsuarios()
     {
-    	Usuario u1=new Usuario("carol","1234","Carol","12345678","ponce marin","941225689","carol@gmail.com","Grado en Ingeniería Informática","2012/2013","18/08/2012","Domiciliacion","985.54");
-    	Usuario u2=new Usuario("elena","4321","Elena","987654321","garcia fernandez","941362154","elena@gmail.com","Grado en Ingeniería Informática","2012/2013","20/08/2012","Domiciliacion","1200");
-    	Usuario u3=new Usuario("oscar","1423","Oscar","192837465","mezquita gonzalez","941325541","oscar@gmail.com","Grado en Matematicas","2012/2013","22/08/2012","Domiciliacion","1145.50");
-    	Usuario u4=new Usuario("eloy","1234","Eloy","12345678","mata","941225689","eloy@gmail.com","Grado en Ingeniería agricola","2012/2013","25/08/2012","Domiciliacion","840.79");
-   
+    	Usuario u1=new Usuario("carol","1234","Carol","12345678","ponce marin","941225689","carol@gmail.com","Grado en Ingeniería Informática","2012/2013","3","18/08/2012","Domiciliacion","985.54");
+    	Usuario u2=new Usuario("elena","4321","Elena","987654321","garcia fernandez","941362154","elena@gmail.com","Grado en Ingeniería Informática","2012/2013","3","20/08/2012","Domiciliacion","1200");
+    	Usuario u3=new Usuario("oscar","1423","Oscar","192837465","mezquita gonzalez","941325541","oscar@gmail.com","Grado en Matematicas","2012/2013","3","22/08/2012","Domiciliacion","1145.50");
+    	Usuario u4=new Usuario("eloy","1234","Eloy","12345678","mata","941225689","eloy@gmail.com","Grado en Ingeniería agricola","2012/2013","2","25/08/2012","Domiciliacion","840.79");
+    
     	datos.add(u1);
     	datos.add(u2);
     	datos.add(u3);

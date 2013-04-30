@@ -51,11 +51,7 @@ public class GAMApplication extends Application {
 			}
 		}
 	};
-	
-	/*
-	 * (non-Javadoc)
-	 * @see android.app.Application#onCreate()
-	 */
+
 	public void onCreate() {
 		super.onCreate();
 		instance = this;
@@ -64,21 +60,10 @@ public class GAMApplication extends Application {
 		usuarioManager = new UsuarioManager(this);
 	}
 	
-	/**
-	 * Retrieves the running WhereApplication instance.
-	 * 
-	 * @return Where application instance.
-	 */
 	public static GAMApplication getInstance() {
 		return instance;
 	}
 	
-	
-	/**
-	 * Retrieves the preferences manager instance.
-	 * 
-	 * @return The preferences manager instance.
-	 */
 	public PreferencesManager getPreferencesManager() {
 		return preferencesManager;
 	}
@@ -87,12 +72,6 @@ public class GAMApplication extends Application {
 		return usuarioManager;
 	}
 
-	
-	/**
-	 * Shows a toast message with the given text.
-	 * 
-	 * @param message Message to show.
-	 */
 	public void showToast(String message) {
 		Bundle bundle = new Bundle();
 		bundle.putString(MESSAGE_TAG, message);
@@ -101,11 +80,6 @@ public class GAMApplication extends Application {
 		handler.sendMessage(msg);
 	}
 	
-	/**
-	 * Checks whether there is internet connectivity or not.
-	 * 
-	 * @return True if there is internet connectivity, false otherwise.
-	 */
 	public boolean internetAvailable() {
 		ConnectivityManager manager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo info = manager.getActiveNetworkInfo();

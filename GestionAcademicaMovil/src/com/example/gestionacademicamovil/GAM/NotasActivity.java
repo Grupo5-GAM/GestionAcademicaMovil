@@ -36,14 +36,6 @@ public class NotasActivity extends TabActivity
         
         mTabHost = getTabHost();
         
-        /*for(int i=0;i<mTabHost.getTabWidget().getChildCount();i++)
-        {
-        	TextView text=(TextView)mTabHost.getTabWidget().getChildAt(i).findViewById(android.R.id.title) ;
-        	text.setTextColor(mResources.getColor(Color.BLACK));
-        }*/
-        
-       
-        
         addTabPrimero();
         addTabSegundo();
         
@@ -68,17 +60,5 @@ public class NotasActivity extends TabActivity
 	      spec.setContent(intent);
 	      mTabHost.addTab(spec);
 	}
-	
-	/*private void addTabTodas() {
-	      Intent intent = new Intent(this, Todas.class);
-	      intent.putExtra("data",bundle.getString("data"));
-	      intent.putExtra("user",bundle.getString("user"));
-	      TabSpec spec = mTabHost.newTabSpec("Tab3");
-	      spec.setIndicator("Todas");
-	      spec.setContent(intent);
-	      mTabHost.addTab(spec);
-	}*/
 
-   
-    
 }

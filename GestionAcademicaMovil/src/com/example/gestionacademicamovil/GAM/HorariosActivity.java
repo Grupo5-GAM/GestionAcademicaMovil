@@ -21,6 +21,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -29,11 +30,11 @@ public class HorariosActivity extends Activity {
 	
 	private ListView list1,list2;
 	private String grado;
-	
+	private static final String googleDocsUrl = "http://docs.google.com/viewer?url=";
 	private Bundle bundle;
 	private TextView usuario;
 	private ArrayList<String> datos= new ArrayList<String>();
-	private myAdapter adapter;
+	private myAdapter adapter;	
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,44 +60,109 @@ public class HorariosActivity extends Activity {
 			    	if(position==0)
 			    	{
 			    		if(grado.equals("Grado en Ingeniería Informática"))
-			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII1.1_12_13.pdf"));
+			    		{
+			    		
+			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII1.1_12_13.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");	
+			    		  //i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII1.1_12_13.pdf"));
+			    		}
 			    		else if(grado.equals("Grado en Ingeniería agricola"))
-			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA1.1_12_13.pdf"));
+			    		{
+			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA1.1_12_13.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA1.1_12_13.pdf"));
+			    		}
 			    		else
-			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GM1.1_12_13.pdf"));
+			    		{
+			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GM1.1_12_13.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GM1.1_12_13.pdf"));
+			    		}
 			    			
 			    		startActivity(i);
 			    	}
 			    	else if(position==1)
 			    	{
 			    		if(grado.equals("Grado en Ingeniería Informática"))
-			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_801_2.1.pdf"));
+			    		{
+			    			
+			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_801_2.1.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_801_2.1.pdf"));
+			    		}
 			    		else if(grado.equals("Grado en Ingeniería agricola"))
-			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA2.1_12_13.pdf"));
+			    		{
+			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA2.1_12_13.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");			    			
+			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA2.1_12_13.pdf"));
+			    		}
 			    		else
-			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_701_2.1.pdf"));
+			    		{
+			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_701_2.1.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");	
+			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_701_2.1.pdf"));
+			    		}
 			    		
 			    	    startActivity(i);
 			    	}
 			    	else if(position==2)
 			    	{
-			    		if(grado.equals("Grado en Ingeniería Informática"))
-			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_801_3.1.pdf"));
+			    		if(grado.equals("Grado en Ingeniería Informática"))			    		
+			    		{
+			    			
+			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_801_3.1.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_801_3.1.pdf"));
+			    		}
 			    		else if(grado.equals("Grado en Ingeniería agricola"))
-			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA3.1_12_13.pdf"));
+			    		{
+			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA3.1_12_13.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");			    			
+			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA3.1_12_13.pdf"));
+			    		}
 			    		else
-			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GM3.1_12_13.pdf"));
+			    		{
+			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA3.1_12_13.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");	
+			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GM3.1_12_13.pdf"));
+			    		}
 			    		
 			    	    startActivity(i);
 			    	}
 			    	else
 			    	{
 			    		if(grado.equals("Grado en Ingeniería Informática"))
-			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII4.1_12_13.pdf"));
+			    		{
+			    			
+			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII4.1_12_13.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");	
+			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII4.1_12_13.pdf"));
+			    		}
 			    		else if(grado.equals("Grado en Ingeniería agricola"))
+			    		{
+			    			/*i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_gagriolas12_13.shtml";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");*/	
 			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_gagriolas12_13.shtml"));
+			    		}	
 			    		else
-			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GM4.1_12_13.pdf"));
+			    		{
+			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GM4.1_12_13.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");	
+			    			
+			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GM4.1_12_13.pdf"));
+			    		}
 			    		
 			    	    startActivity(i);
 			    	}
@@ -110,44 +176,104 @@ public class HorariosActivity extends Activity {
  			    	if(position==0)
  			    	{
  			    		if(grado.equals("Grado en Ingeniería Informática"))
- 			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII1.2_12_13.pdf"));
+ 			    		{
+ 			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII1.2_12_13.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");	
+ 			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII1.2_12_13.pdf"));
+ 			    		}
 			    		else if(grado.equals("Grado en Ingeniería agricola"))
-			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA1.2_12_13.pdf"));
+			    		{
+			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII1.2_12_13.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");	
+			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA1.2_12_13.pdf"));
+			    		}
 			    		else
-			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GM1.2_12_13.pdf"));
+			    		{
+			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GM1.2_12_13.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GM1.2_12_13.pdf"));
+			    		}
 			    		
 			    	    startActivity(i);
  			    	}
  			    	else if(position==1)
  			    	{
  			    		if(grado.equals("Grado en Ingeniería Informática"))
- 			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_801_2.2.pdf"));
+ 			    		{
+ 			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_801_2.2.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+ 			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_801_2.2.pdf"));
+ 			    		}
 			    		else if(grado.equals("Grado en Ingeniería agricola"))
-			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA2.2_12_13.pdf"));
+			    		{
+			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA2.2_12_13.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA2.2_12_13.pdf"));
+			    		}
 			    		else
-			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GM2.2_12_13.pdf"));
+			    		{
+			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GM2.2_12_13.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GM2.2_12_13.pdf"));
+			    		}
 			    		
 			    	    startActivity(i);
  			    	}
  			    	else if(position==2)
  			    	{
  			    		if(grado.equals("Grado en Ingeniería Informática"))
- 			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII3.2_12_13.pdf"));
+ 			    		{
+ 			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII3.2_12_13.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+ 			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII3.2_12_13.pdf"));
+ 			    		}
 			    		else if(grado.equals("Grado en Ingeniería agricola"))
-			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA3.2_12_13.pdf"));
+			    		{
+			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA3.2_12_13.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA3.2_12_13.pdf"));
+			    		}
 			    		else
-			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_701_3.2.pdf"));
+			    		{
+			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_701_3.2.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_701_3.2.pdf"));
+			    		}
 			    		
 			    	    startActivity(i);
  			    	}
  			    	else
  			    	{
  			    		if(grado.equals("Grado en Ingeniería Informática"))
- 			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII4.2_12_13.pdf"));
+ 			    		{
+ 			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII4.2_12_13.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+ 			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII4.2_12_13.pdf"));
+ 			    		}
 			    		else if(grado.equals("Grado en Ingeniería agricola"))
+			    		{
+			    			/*i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_gagriolas12_13.shtml";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");*/
 			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_gagriolas12_13.shtml"));
+			    		}
 			    		else
-			    			i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GM4.2_12_13.pdf"));
+			    		{
+			    			i.setAction(android.content.Intent.ACTION_VIEW);
+			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GM4.2_12_13.pdf";
+			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
+			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GM4.2_12_13.pdf"));
+			    		}
 			    		
 			    	    startActivity(i);
  			    	}
@@ -183,7 +309,7 @@ public class HorariosActivity extends Activity {
   			   });*/
   			
   			 TextView data1 = (TextView)row.findViewById(R.id.text1);
-  			 
+  		
  			 data1.setText(listDato);
 
   			 return row;

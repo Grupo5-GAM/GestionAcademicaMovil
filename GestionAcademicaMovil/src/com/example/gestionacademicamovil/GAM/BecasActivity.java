@@ -29,7 +29,6 @@ public class BecasActivity extends Activity
 	private ListView list;
 	
 	private Bundle bundle;
-	private String grado;
 	private TextView usuario;
 	
 	private miAdapter adapter;
@@ -44,6 +43,8 @@ public class BecasActivity extends Activity
          setContentView(R.layout.becas);
         
 		 bundle=getIntent().getExtras();
+		 
+		 crearDatos();
 	        
 	     usuario=(TextView)findViewById(R.id.usuario);
 	     usuario.setText(GAMApplication.getInstance().getPreferencesManager().getName());
@@ -52,14 +53,19 @@ public class BecasActivity extends Activity
 	     adapter=new miAdapter(this,R.layout.becas_item,datos);
 	     list.setAdapter(adapter);
 	     btDescargar=(Button)findViewById(R.id.btDescargar);
+	     if(datos.size()==0)
+	     {
+	    	 GAMApplication.getInstance().showToast("No hay datos");	//Colocar un dialogalert		 
+			 btDescargar.setEnabled(false);
+			 BecasActivity.this.finish();
+	     }
 	     btDescargar.setOnClickListener(new OnClickListener()
 	     {
 			  @SuppressWarnings("deprecation")
 			public void onClick(View view)
 			  {
 				 CrearPDF crearpdf= new CrearPDF(datos);				 
-				 Toast toast = Toast.makeText(getApplicationContext(), "Descargando...", Toast.LENGTH_SHORT);
-				 toast.show();
+				 GAMApplication.getInstance().showToast("Descargando...");
 				 crearpdf.descargarPDFBecas();
 				 String ns1 = Context.NOTIFICATION_SERVICE;
 				 NotificationManager notManager =  (NotificationManager) getSystemService(ns1);
@@ -90,6 +96,11 @@ public class BecasActivity extends Activity
     {
     	super.onStart();
     	
+    }
+	
+	public void crearDatos()
+    {
+
     	Beca a1=new Beca("Movilidad","Abierta");
     	Beca a2=new Beca("Colaboración","Cerrada");
     	Beca a3=new Beca("Transporte","Abierta");
@@ -127,8 +138,8 @@ public class BecasActivity extends Activity
 
 			 return row;
 		 
-		}
-	}	
+		}	
+	}
 	
 	
 	

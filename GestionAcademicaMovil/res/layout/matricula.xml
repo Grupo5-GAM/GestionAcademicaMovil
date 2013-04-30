@@ -23,6 +23,14 @@
       	 	android:textColor="@color/white"/>
 	</LinearLayout> 
 	
+    <ScrollView 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+    	<LinearLayout
+    	     android:layout_width="fill_parent"
+        	 android:layout_height="fill_parent"
+        	 android:orientation="vertical"
+        	 android:gravity="center_horizontal">"
     <LinearLayout 
  		android:layout_width="match_parent"
     	android:layout_height="wrap_content"
@@ -220,6 +228,7 @@
      </LinearLayout>
      </LinearLayout>
     
+    
      <LinearLayout 
  		android:layout_width="match_parent"
     	android:layout_height="wrap_content"
@@ -406,7 +415,10 @@
       	 	android:textColor="@color/black"
       	 	android:text="1520,65 €"/>
     </LinearLayout>
+    
     </LinearLayout>
     </LinearLayout>
 
+ </LinearLayout>
+ </ScrollView>
 </LinearLayout>

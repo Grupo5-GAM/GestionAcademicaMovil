@@ -45,7 +45,7 @@ private ListView list;
         setContentView(R.layout.convalidaciones);
 		
         bundle=getIntent().getExtras();
-	    //grado=bundle.getString("grado");
+        crearDatos();
 	        
 	     usuario=(TextView)findViewById(R.id.usuario);
 	     usuario.setText(GAMApplication.getInstance().getPreferencesManager().getName());
@@ -54,12 +54,17 @@ private ListView list;
 	     adapter=new miAdapter(this,R.layout.convalidacion_item,datos);
 	     list.setAdapter(adapter);
 	     btDescargar=(Button)findViewById(R.id.btDescargar);
+	     if(datos.size()==0)
+	     {
+	    	 GAMApplication.getInstance().showToast("No hay datos");	//Colocar un dialogalert		 
+			 btDescargar.setEnabled(false);
+			 ConvalidacionesActivity.this.finish();
+	     }
 	     btDescargar.setOnClickListener(new OnClickListener(){
 			  public void onClick(View view)
 			  {
 				 CrearPDF crearpdf= new CrearPDF(datos);				 
-				 Toast toast = Toast.makeText(getApplicationContext(), "Descargando...", Toast.LENGTH_SHORT);
-				 toast.show();
+				 GAMApplication.getInstance().showToast("Descargando...");
 				 crearpdf.descargarPDFConvalidaciones();
 				 String ns = Context.NOTIFICATION_SERVICE;
 				 NotificationManager notManager =  (NotificationManager) getSystemService(ns);
@@ -89,6 +94,10 @@ private ListView list;
     {
     	super.onStart();
     	
+    }
+	
+	private void crearDatos()
+	{
     	Convalidacion a1=new Convalidacion("Informatica Movil","Informatica Movil",6,"Optativa",9.0);
     	Convalidacion a2=new Convalidacion("Instalación y Mantenimiento de computadores","Instalación y Mantenimiento de computadores",6,"Optativa",9.0);
     	Convalidacion a3=new Convalidacion("Estructura de Computadores","Arquitectura de computadores",6,"Obligatoria",8.0);
@@ -97,7 +106,7 @@ private ListView list;
         datos.add(a2);
         datos.add(a3);
         datos.add(a4);
-    }
+	}
 	
 	class miAdapter extends ArrayAdapter<Convalidacion>  {
 

@@ -7,6 +7,7 @@ public class Asignatura {
 	private int creditos;
 	private String profesor;
 	private String guia;
+	private int cuatrimestre;
 	
 	public Asignatura()
 	{
@@ -14,16 +15,16 @@ public class Asignatura {
 		this.nombre="Taller transversal";
 		this.creditos=6;
 		this.profesor="Cesar dominguez";
-		this.guia="http:/blabla";
 	}
 	
-	public Asignatura(String gr,String n,int c,String p,String g)
+	public Asignatura(String gr,String n,int c,String p,String gu,int cu)
 	{
 		this.grado=gr;
 		this.nombre=n;
 		this.creditos=c;
 		this.profesor=p;
-		this.guia=g;
+		this.guia=gu;
+		this.setCuatrimestre(cu);
 	}
 
 	public String getNombre() {
@@ -50,6 +51,14 @@ public class Asignatura {
 		this.profesor = profesor;
 	}
 
+	public String getGrado() {
+		return grado;
+	}
+
+	public void setGrado(String grado) {
+		this.grado = grado;
+	}
+
 	public String getGuia() {
 		return guia;
 	}
@@ -58,12 +67,12 @@ public class Asignatura {
 		this.guia = guia;
 	}
 
-	public String getGrado() {
-		return grado;
+	public int getCuatrimestre() {
+		return cuatrimestre;
 	}
 
-	public void setGrado(String grado) {
-		this.grado = grado;
+	public void setCuatrimestre(int cuatrimestre) {
+		this.cuatrimestre = cuatrimestre;
 	}
 	
 	

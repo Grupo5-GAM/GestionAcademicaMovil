@@ -29,7 +29,9 @@
         
         <activity android:name=".About"></activity>
         <activity android:name=".AjustesActivity"></activity>
-        <activity android:name=".AsignaturasActivity"></activity>
+		<activity android:name=".AsignaturasActivity1"></activity>
+		<activity android:name=".AsignaturasActivity2"></activity>
+		<activity android:name=".AsignaturasActivity"></activity>
         <activity android:name=".BecasActivity"></activity>
         <activity android:name=".ConvalidacionesActivity"></activity>
         <activity android:name=".GAMActivity"></activity>

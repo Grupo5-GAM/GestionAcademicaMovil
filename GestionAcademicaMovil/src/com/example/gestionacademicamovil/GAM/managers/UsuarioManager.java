@@ -16,7 +16,11 @@ import com.example.gestionacademicamovil.GAM.GAMApplication;
 import com.example.gestionacademicamovil.GAM.model.Usuario;
 import com.google.gson.Gson;
 
-import es.unirioja.ae.academico.api.jws.*;
+import es.unirioja.ae.academico.api.jws.DatoAlumno;
+import es.unirioja.ae.academico.api.jws.GetDatosPersonalesResponse;
+import es.unirioja.ae.academico.api.jws.Personas;
+import es.unirioja.ae.academico.api.jws.PersonasService;
+import es.unirioja.ae.academico.api.jws.SecurityToken;
 
 public class UsuarioManager {
 	
@@ -41,48 +45,25 @@ public class UsuarioManager {
 		this.context = context;
 	}
 	
-	public static Usuario getUsuario(SecurityToken token)
+	public Usuario getUsuario(SecurityToken token)
 	{			
 		GAMApplication.getInstance().showToast(token.getUsername()+token.getPasswd());
 		
-		 request = new SoapObject(NAMESPACE, METHOD_NAME);
-		 PropertyInfo parametro = new PropertyInfo ();
-		 parametro.setName ("token");
-		 parametro.setValue (token);
-		 request.addProperty (parametro);
-		 
-		 envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-		 envelope.dotNet = false;
-		 envelope.setOutputSoapObject(request);
-		 HttpTransportSE transporte = new HttpTransportSE(URL);
-		 
-		 try {
-				transporte.call(SOAP_ACTION, envelope);
-				
-				List<DatoAlumno> datoAlumnoCollection =(List<DatoAlumno>) envelope.getResponse();
-
-				/*resultsRequestSOAP = (SoapObject)envelope.getResponse();
-				SoapObject u=(SoapObject) resultsRequestSOAP.getProperty(0);
-				
-				String nombre=u.getProperty(0).toString();
-				String nif=u.getProperty(1).toString();
-				String apellidos=u.getProperty(2).toString();
-				String telefono=u.getProperty(3).toString();
-				String email=u.getProperty(4).toString();*/
-				
-				//user=new Usuario();
-				user.setNombre(datoAlumnoCollection.get(0).getNombre());
-				user.setNIF(datoAlumnoCollection.get(0).getDni());
-				user.setApellidos(datoAlumnoCollection.get(0).getApellido1()+" "+datoAlumnoCollection.get(0).getApellido2());
-				user.setTelefono(datoAlumnoCollection.get(0).getTelefono());
-				user.setEmail(datoAlumnoCollection.get(0).getEmail());
-				//user=new Usuario(nombre,nif,apellidos,telefono,email);
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (XmlPullParserException e) {
-				e.printStackTrace();
-			}
+		PersonasService personasService=new PersonasService();
+		Personas per=personasService.getPersonasPort();
+		GetDatosPersonalesResponse response=per.getDatosPersonales(null,token);
+		List<DatoAlumno> datoAlumnoCollection=response.getDatoAlumno();
+		
+		if(datoAlumnoCollection.size()!=0)
+		{
+			//user=new Usuario();
+			user.setNombre(datoAlumnoCollection.get(0).getNombre());
+			user.setNIF(datoAlumnoCollection.get(0).getDni());
+			user.setApellidos(datoAlumnoCollection.get(0).getApellido1()+" "+datoAlumnoCollection.get(0).getApellido2());
+			user.setTelefono(datoAlumnoCollection.get(0).getTelefono());
+			user.setEmail(datoAlumnoCollection.get(0).getEmail());
+			//user=new Usuario(nombre,nif,apellidos,telefono,email);
+		}
 		 
 		return user;
 	 }

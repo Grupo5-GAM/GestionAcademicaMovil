@@ -2,7 +2,7 @@ package com.example.gestionacademicamovil.GAM;
 
 import java.util.ArrayList;
 
-import com.example.gestionacademicamovil.GAM.AsignaturasActivity.miAdapter;
+import com.example.gestionacademicamovil.GAM.AsignaturasActivity1.miAdapter;
 import com.example.gestionacademicamovil.GAM.managers.CrearPDF;
 import com.example.gestionacademicamovil.GAM.model.Asignatura;
 import com.example.gestionacademicamovil.GAM.model.Nota;
@@ -35,7 +35,7 @@ public class Segundo extends Activity
 	
 	private ArrayList<Nota> datos=new ArrayList<Nota>();
 	private ArrayList<Nota> datosMostrar=new ArrayList<Nota>();
-	
+	private String grado;
 	private TextView usuario,texto;
 	private  Bundle bundle;
 	private Button btDescargar;
@@ -48,10 +48,12 @@ public class Segundo extends Activity
         
         bundle=getIntent().getExtras();
         
+        grado=GAMApplication.getInstance().getPreferencesManager().getGrado();
+        
         crearDatos();
         for(int i=0;i<datos.size();i++)
         {
-        	if(datos.get(i).getCuatrimestre()==2)
+        	if(datos.get(i).getCuatrimestre()==2 && datos.get(i).getGrado().equals(grado))
         		datosMostrar.add(datos.get(i));
         }
         
@@ -100,17 +102,16 @@ public class Segundo extends Activity
     }
     public void descargarPDF(String opcion)
     {
-    	CrearPDF crearpdf;
-    	if(opcion.equals("Segundo"))
-    	{
-    	  crearpdf= new CrearPDF(datosMostrar);	
-    	}
-    	else
-    	{
-    	  crearpdf= new CrearPDF(datos);		
-    	}
-		 Toast toast = Toast.makeText(getApplicationContext(), "Descargando...", Toast.LENGTH_SHORT);
-		 toast.show();
+    	 CrearPDF crearpdf;
+    	 if(opcion.equals("Segundo"))
+    	 {
+    	   crearpdf= new CrearPDF(datosMostrar);	
+    	 }
+    	 else
+    	 {
+    	   crearpdf= new CrearPDF(datos);		
+    	 }
+    	 GAMApplication.getInstance().showToast("Descargando...");
 		 crearpdf.descargarPDFNotas();
 		 String ns = Context.NOTIFICATION_SERVICE;
 		 NotificationManager notManager =  (NotificationManager) getSystemService(ns);
@@ -139,16 +140,72 @@ public class Segundo extends Activity
     
     public void crearDatos()
     {
-    	Nota n1=new Nota(1,"Taller Transversal II",6,8.5,true,"desp 350 12/05/2013");
-    	Nota n2=new Nota(2,"Profesión del ingeniero informático",6,8.5,true,"desp 350 12/05/2013");
-    	Nota n3=new Nota(2,"Seguridad",6,8.5,true,"desp 350 12/05/2013");
-    	Nota n4=new Nota(1,"Practicas Externas I",6,8.5,true,"desp 350 12/05/2013");
-    	Nota n5=new Nota(1,"Practicas Externas II",6,8.5,true,"desp 350 12/05/2013");
-        datos.add(n1);
-        datos.add(n2);
-        datos.add(n3);
-        datos.add(n4);
-        datos.add(n5);
+        	Nota n1=new Nota(1,"Electrotecnia, máquinas y motores","Grado en Ingeniería agricola",6,7,"Si","");
+        	Nota n2=new Nota(1,"Producción vegetal","Grado en Ingeniería agricola",6,8.5,"Si","");
+        	Nota n3=new Nota(1,"Espresión gráfica","Grado en Ingeniería agricola",6,6,"Si","");
+        	Nota n4=new Nota(1,"Hidráulica","Grado en Ingeniería agricola",6,7.5,"Si","");
+        	Nota n5=new Nota(1,"Tecnología de alimentos","Grado en Ingeniería agricola",6,5.2,"No","desp 350 06/05/2013");
+        	Nota n6=new Nota(2,"Informática","Grado en Ingeniería agricola",6,7,"Si","");
+        	Nota n7=new Nota(2,"Botánica","Grado en Ingeniería agricola",6,6.3,"Si","");
+        	Nota n8=new Nota(2,"Topografía, cartografía y SIG","Grado en Ingeniería agricola",6,8.5,"Si","");
+        	Nota n9=new Nota(2,"Cultivos","Grado en Ingeniería agricola",6,5.5,"Si","");
+        	Nota n10=new Nota(2,"Paisajismo","Grado en Ingeniería agricola",6,9,"No","desp 350 16/05/2013");
+        	
+        	Nota i1=new Nota(1,"Tecnología orientada a objetos","Grado en Ingeniería Informática",6,7,"Si","");
+        	Nota i2=new Nota(1,"Sistemas distribuidos","Grado en Ingeniería Informática",6,8.5,"Si","");
+        	Nota i3=new Nota(1,"Administracion de redes y servidores","Grado en Ingeniería Informática",6,6,"Si","");
+        	Nota i4=new Nota(1,"Arquitectura de computadores","Grado en Ingeniería Informática",6,7.5,"Si","");
+        	Nota i5=new Nota(1,"Diseño tecnológico de sistemas de información","Grado en Ingeniería Informática",6,5.2,"No","desp 205 12/06/2013");
+        	Nota i6=new Nota(2,"Procesadores de lenguajes","Grado en Ingeniería Informática",6,7,"Si","");
+        	Nota i7=new Nota(2,"Proyectos de informática","Grado en Ingeniería Informática",6,6.3,"Si","");
+        	Nota i8=new Nota(2,"Programación de aplicaciones Web","Grado en Ingeniería Informática",6,8.5,"Si","");
+        	Nota i9=new Nota(2,"Inteligencia artificial","Grado en Ingeniería Informática",6,5.5,"Si","");
+        	Nota i10=new Nota(2,"Taller transversal I","Grado en Ingeniería Informática",6,9,"No","desp 310 13/05/2013");
+        	
+        	Nota m1=new Nota(1,"Estructuras algebraicas","Grado en Matematicas",6,0,"","");
+        	Nota m2=new Nota(1,"Modelos de regresión","Grado en Matematicas",6,0,"","");
+        	Nota m3=new Nota(1,"Métodos numéricos","Grado en Matematicas",6,6,"","");
+        	Nota m4=new Nota(1,"Ecuaciones diferenciales","Grado en Matematicas",6,0,"","");
+        	Nota m5=new Nota(1,"Modelización y optimización I","Grado en Matematicas",6,0,"","");
+        	Nota m6=new Nota(2,"Teoria de Galois","Grado en Matematicas",6,0,"","");
+        	Nota m7=new Nota(2,"Modelización y optimización II","Grado en Matematicas",6,0,"","");
+        	Nota m8=new Nota(2,"Métodos numéricos en ecuaciones diferenciales","Grado en Matematicas",6,0,"","");
+        	Nota m9=new Nota(2,"Topología general","Grado en Matematicas",6,0,"","");
+        	Nota m10=new Nota(2,"Análisis complejo","Grado en Ingeniería Informática",6,0,"","");
+        	
+        	
+            datos.add(n1);
+            datos.add(n2);
+            datos.add(n3);
+            datos.add(n4);
+            datos.add(n5);
+            datos.add(n6);
+            datos.add(n7);
+            datos.add(n8);
+            datos.add(n9);
+            datos.add(n10);
+            
+            datos.add(i1);
+            datos.add(i2);
+            datos.add(i3);
+            datos.add(i4);
+            datos.add(i5);
+            datos.add(i6);
+            datos.add(i7);
+            datos.add(i8);
+            datos.add(i9);
+            datos.add(i10);
+            
+            datos.add(m1);
+            datos.add(m2);
+            datos.add(m3);
+            datos.add(m4);
+            datos.add(m5);
+            datos.add(m6);
+            datos.add(m7);
+            datos.add(m8);
+            datos.add(m9);
+            datos.add(m10);
     }
     
     class miAdapter extends ArrayAdapter<Nota>  {
@@ -181,11 +238,8 @@ public class Segundo extends Activity
  			  data1.setText(listDato.getAsignatura());
  			  data2.setText(String.valueOf(listDato.getCreditos()));
  			  data3.setText(String.valueOf(listDato.getNota()));
- 			 if(listDato.isDefinitiva())
- 				  data4.setText("Si");
- 			  else
- 				data4.setText("No");
- 			  data4.setText(listDato.getRevision());
+ 			  data4.setText(listDato.isDefinitiva());
+ 			  data5.setText(listDato.getRevision());
 
  			  return row;
   		 
