@@ -16,6 +16,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -39,6 +40,8 @@ public class AsignaturasActivity2 extends Activity {
 	private miAdapter adapter;
 	private Button btDescargar;
 	
+	private Resources mResources;
+	
 	private ArrayList<Asignatura> datos=new ArrayList<Asignatura>();
 	private ArrayList<Asignatura> datosMostrar=new ArrayList<Asignatura>();
 
@@ -47,6 +50,8 @@ public class AsignaturasActivity2 extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.asignaturas);
+
+        mResources = getResources();
         
         bundle=getIntent().getExtras();
         //grado=bundle.getString("grado");
@@ -76,7 +81,7 @@ public class AsignaturasActivity2 extends Activity {
     private void descargarPDF(String opcion)
     {
     	CrearPDF crearpdf;
-   	    if(opcion.equals("Primero"))
+    	if(opcion.equals(mResources.getString(R.string.segundo)))
    	    {
    	    	crearpdf= new CrearPDF(datosMostrar);	
    	    }
@@ -85,18 +90,18 @@ public class AsignaturasActivity2 extends Activity {
    	    	crearpdf= new CrearPDF(datos);		
    	    }
 			 
-		 GAMApplication.getInstance().showToast("Descargando...");
+    	 GAMApplication.getInstance().showToast(mResources.getString(R.string.descargando));
 		 crearpdf.descargarPDFAsignaturas();
 		 String ns = Context.NOTIFICATION_SERVICE;
 		 NotificationManager notManager =  (NotificationManager) getSystemService(ns);
 		 int icono = android.R.drawable.stat_sys_download;		 
 		 
-		 CharSequence textoEstado = "Descargado!";
+		 CharSequence textoEstado =mResources.getString(R.string.descargado);
 		 long hora = System.currentTimeMillis();				  
 		 Notification notif =  new Notification(icono, textoEstado, hora);
 		 Context contexto = getApplicationContext();
-		 CharSequence titulo = "Carga completa";
-		 CharSequence descripcion = "Archivo descargado correctamente";
+		 CharSequence titulo = mResources.getString(R.string.cargacompleta);
+		 CharSequence descripcion = mResources.getString(R.string.archdescargado);
 		  
 		 Intent notIntent = new Intent(contexto, VerPDFAsignaturasActivity.class);
 		 notIntent.putExtra("fichero","Asignaturas.pdf");
@@ -110,12 +115,12 @@ public class AsignaturasActivity2 extends Activity {
     private void seleccion()
     {
     	
-       final CharSequence[] items = {"Primero", "Todas"};
+       final CharSequence[] items = {mResources.getString(R.string.segundo), mResources.getString(R.string.todas)};
        
     	 
        AlertDialog.Builder builder = new AlertDialog.Builder(this);
     	 
-            builder.setTitle("Descargar Asignaturas de:");
+       builder.setTitle(mResources.getString(R.string.descargasig));
     	    builder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() 
     	    {
     	        public void onClick(DialogInterface dialog, int item) 
@@ -123,11 +128,11 @@ public class AsignaturasActivity2 extends Activity {
     	        	Intent i = new Intent();
     	        	if(item==0)
             		{
-            			descargarPDF("Primero");
+            			descargarPDF(mResources.getString(R.string.segundo));
             		}
     	        	else
     	        	{
-    	        		descargarPDF("Todas");
+    	        		descargarPDF(mResources.getString(R.string.todas));
     	        	}
     	        	
     	        	dialog.cancel();
@@ -163,7 +168,7 @@ public class AsignaturasActivity2 extends Activity {
     	Asignatura b2=new Asignatura("Grado en Ingeniería Informática","Sistemas distribuidos",6,"Francisco Izquierdo","http://SD",1);
     	Asignatura b3=new Asignatura("Grado en Ingeniería Informática","Administración de redes y servidores",6,"Carlos Elvira","http://ARYS",1);
     	Asignatura b4=new Asignatura("Grado en Ingeniería Informática","Arquitectura de computadores",6,"Ivan Pérez","http://AC",1);
-    	Asignatura b5=new Asignatura("Grado en Ingeniería Informática","Diseño tecnológico de sistemas de información",6,"Angel Luis Rubio","http://DTSI",2);
+    	Asignatura b5=new Asignatura("Grado en Ingeniería Informática","Diseño tecnológico de sistemas de información",6,"Angel Luis Rubio","http://DTSI",1);
     	
     	Asignatura b6=new Asignatura("Grado en Ingeniería Informática","Procesadores de lenguajes",6,"Laureano Lamban","http://PL",2);
     	Asignatura b7=new Asignatura("Grado en Ingeniería Informática","Proyectos de informática",6,"Arturo Elizondo","http://PI",2);

@@ -13,6 +13,7 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -35,6 +36,7 @@ public class HorariosActivity extends Activity {
 	private TextView usuario;
 	private ArrayList<String> datos= new ArrayList<String>();
 	private myAdapter adapter;	
+	private Resources mResources;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +44,19 @@ public class HorariosActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.horarios);
         
+        mResources = getResources();
+        
         usuario=(TextView)findViewById(R.id.usuario);
         usuario.setText(GAMApplication.getInstance().getPreferencesManager().getName());
         
         list1= (ListView)findViewById(R.id.list1);
         list2= (ListView)findViewById(R.id.list2);
+        
+        datos.add(mResources.getString(R.string.primero));
+    	datos.add(mResources.getString(R.string.segundo));
+    	datos.add(mResources.getString(R.string.tercero));
+    	datos.add(mResources.getString(R.string.cuarto));   
+        
         adapter=new myAdapter(this,R.layout.list_item_horarios,datos);
         list1.setAdapter(adapter);
         list2.setAdapter(adapter);
@@ -59,7 +69,7 @@ public class HorariosActivity extends Activity {
 				   Intent i = new Intent();
 			    	if(position==0)
 			    	{
-			    		if(grado.equals("Grado en Ingeniería Informática"))
+			    		if(grado.equals(mResources.getString(R.string.ginf)))
 			    		{
 			    		
 			    			i.setAction(android.content.Intent.ACTION_VIEW);
@@ -67,7 +77,7 @@ public class HorariosActivity extends Activity {
 			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");	
 			    		  //i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII1.1_12_13.pdf"));
 			    		}
-			    		else if(grado.equals("Grado en Ingeniería agricola"))
+			    		else if(grado.equals(mResources.getString(R.string.gagr)))
 			    		{
 			    			i.setAction(android.content.Intent.ACTION_VIEW);
 			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA1.1_12_13.pdf";
@@ -86,7 +96,7 @@ public class HorariosActivity extends Activity {
 			    	}
 			    	else if(position==1)
 			    	{
-			    		if(grado.equals("Grado en Ingeniería Informática"))
+			    		if(grado.equals(mResources.getString(R.string.ginf)))
 			    		{
 			    			
 			    			i.setAction(android.content.Intent.ACTION_VIEW);
@@ -94,7 +104,7 @@ public class HorariosActivity extends Activity {
 			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
 			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_801_2.1.pdf"));
 			    		}
-			    		else if(grado.equals("Grado en Ingeniería agricola"))
+			    		else if(grado.equals(mResources.getString(R.string.gagr)))
 			    		{
 			    			i.setAction(android.content.Intent.ACTION_VIEW);
 			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA2.1_12_13.pdf";
@@ -113,7 +123,7 @@ public class HorariosActivity extends Activity {
 			    	}
 			    	else if(position==2)
 			    	{
-			    		if(grado.equals("Grado en Ingeniería Informática"))			    		
+			    		if(grado.equals(mResources.getString(R.string.ginf)))			    		
 			    		{
 			    			
 			    			i.setAction(android.content.Intent.ACTION_VIEW);
@@ -121,7 +131,7 @@ public class HorariosActivity extends Activity {
 			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
 			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_801_3.1.pdf"));
 			    		}
-			    		else if(grado.equals("Grado en Ingeniería agricola"))
+			    		else if(grado.equals(mResources.getString(R.string.gagr)))
 			    		{
 			    			i.setAction(android.content.Intent.ACTION_VIEW);
 			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA3.1_12_13.pdf";
@@ -140,7 +150,7 @@ public class HorariosActivity extends Activity {
 			    	}
 			    	else
 			    	{
-			    		if(grado.equals("Grado en Ingeniería Informática"))
+			    		if(grado.equals(mResources.getString(R.string.ginf)))
 			    		{
 			    			
 			    			i.setAction(android.content.Intent.ACTION_VIEW);
@@ -148,7 +158,7 @@ public class HorariosActivity extends Activity {
 			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");	
 			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII4.1_12_13.pdf"));
 			    		}
-			    		else if(grado.equals("Grado en Ingeniería agricola"))
+			    		else if(grado.equals(mResources.getString(R.string.gagr)))
 			    		{
 			    			/*i.setAction(android.content.Intent.ACTION_VIEW);
 			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_gagriolas12_13.shtml";
@@ -175,14 +185,14 @@ public class HorariosActivity extends Activity {
  				   Intent i = new Intent();
  			    	if(position==0)
  			    	{
- 			    		if(grado.equals("Grado en Ingeniería Informática"))
+ 			    		if(grado.equals(mResources.getString(R.string.ginf)))
  			    		{
  			    			i.setAction(android.content.Intent.ACTION_VIEW);
 			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII1.2_12_13.pdf";
 			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");	
  			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII1.2_12_13.pdf"));
  			    		}
-			    		else if(grado.equals("Grado en Ingeniería agricola"))
+			    		else if(grado.equals(mResources.getString(R.string.gagr)))
 			    		{
 			    			i.setAction(android.content.Intent.ACTION_VIEW);
 			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII1.2_12_13.pdf";
@@ -201,14 +211,14 @@ public class HorariosActivity extends Activity {
  			    	}
  			    	else if(position==1)
  			    	{
- 			    		if(grado.equals("Grado en Ingeniería Informática"))
+ 			    		if(grado.equals(mResources.getString(R.string.ginf)))
  			    		{
  			    			i.setAction(android.content.Intent.ACTION_VIEW);
 			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_801_2.2.pdf";
 			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
  			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/horarios_2012-13_801_2.2.pdf"));
  			    		}
-			    		else if(grado.equals("Grado en Ingeniería agricola"))
+			    		else if(grado.equals(mResources.getString(R.string.gagr)))
 			    		{
 			    			i.setAction(android.content.Intent.ACTION_VIEW);
 			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA2.2_12_13.pdf";
@@ -227,14 +237,14 @@ public class HorariosActivity extends Activity {
  			    	}
  			    	else if(position==2)
  			    	{
- 			    		if(grado.equals("Grado en Ingeniería Informática"))
+ 			    		if(grado.equals(mResources.getString(R.string.ginf)))
  			    		{
  			    			i.setAction(android.content.Intent.ACTION_VIEW);
 			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII3.2_12_13.pdf";
 			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
  			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII3.2_12_13.pdf"));
  			    		}
-			    		else if(grado.equals("Grado en Ingeniería agricola"))
+			    		else if(grado.equals(mResources.getString(R.string.gagr)))
 			    		{
 			    			i.setAction(android.content.Intent.ACTION_VIEW);
 			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GIA3.2_12_13.pdf";
@@ -253,14 +263,14 @@ public class HorariosActivity extends Activity {
  			    	}
  			    	else
  			    	{
- 			    		if(grado.equals("Grado en Ingeniería Informática"))
+ 			    		if(grado.equals(mResources.getString(R.string.ginf)))
  			    		{
  			    			i.setAction(android.content.Intent.ACTION_VIEW);
 			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII4.2_12_13.pdf";
 			    			i.setDataAndType(Uri.parse(googleDocsUrl + url), "text/html");
  			    			//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_12_13/GII4.2_12_13.pdf"));
  			    		}
-			    		else if(grado.equals("Grado en Ingeniería agricola"))
+			    		else if(grado.equals(mResources.getString(R.string.gagr)))
 			    		{
 			    			/*i.setAction(android.content.Intent.ACTION_VIEW);
 			    			String url="http://www.unirioja.es/facultades_escuelas/fceai/horarios/horarios_gagriolas12_13.shtml";
@@ -315,15 +325,6 @@ public class HorariosActivity extends Activity {
   			 return row;
   		}
   	}
-    
-    public void onStart()
-    {
-    	super.onStart();
-    	datos.add("Primero");
-    	datos.add("Segundo");
-    	datos.add("Tercero");
-    	datos.add("Cuarto");
-    }   
   
     
 }

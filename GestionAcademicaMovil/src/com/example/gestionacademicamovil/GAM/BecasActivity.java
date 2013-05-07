@@ -12,6 +12,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +35,8 @@ public class BecasActivity extends Activity
 	private miAdapter adapter;
 	private Button btDescargar;
 	
+	private Resources mResources;
+	
 	private ArrayList<Beca> datos=new ArrayList<Beca>();
 	
 	@Override
@@ -41,6 +44,8 @@ public class BecasActivity extends Activity
 		 super.onCreate(savedInstanceState);
 		 requestWindowFeature(Window.FEATURE_NO_TITLE);
          setContentView(R.layout.becas);
+         
+         mResources = getResources();
         
 		 bundle=getIntent().getExtras();
 		 
@@ -55,7 +60,7 @@ public class BecasActivity extends Activity
 	     btDescargar=(Button)findViewById(R.id.btDescargar);
 	     if(datos.size()==0)
 	     {
-	    	 GAMApplication.getInstance().showToast("No hay datos");	//Colocar un dialogalert		 
+	    	 GAMApplication.getInstance().showToast(mResources.getString(R.string.nohaydatos));	//Colocar un dialogalert		 
 			 btDescargar.setEnabled(false);
 			 BecasActivity.this.finish();
 	     }
@@ -65,18 +70,18 @@ public class BecasActivity extends Activity
 			public void onClick(View view)
 			  {
 				 CrearPDF crearpdf= new CrearPDF(datos);				 
-				 GAMApplication.getInstance().showToast("Descargando...");
+				 GAMApplication.getInstance().showToast(mResources.getString(R.string.descargando));
 				 crearpdf.descargarPDFBecas();
 				 String ns1 = Context.NOTIFICATION_SERVICE;
 				 NotificationManager notManager =  (NotificationManager) getSystemService(ns1);
 				 int icono = android.R.drawable.stat_sys_download;		 
 				 
-				 CharSequence textoEstado = "Descargado!";
+				 CharSequence textoEstado = mResources.getString(R.string.descargado);
 				 long hora = System.currentTimeMillis();				  
 				 Notification notif1 =  new Notification(icono, textoEstado, hora);
 				 Context contexto1 = getApplicationContext();
-				 CharSequence titulo1 = "Carga completa";
-				 CharSequence descripcion1 = "Archivo descargado correctamente";
+				 CharSequence titulo1 = mResources.getString(R.string.cargacompleta);
+				 CharSequence descripcion1 =mResources.getString(R.string.archdescargado);
 				  
 				 Intent notIntent1 = null; 
 				 notIntent1= new Intent(contexto1, VerPDFBecasActivity.class);

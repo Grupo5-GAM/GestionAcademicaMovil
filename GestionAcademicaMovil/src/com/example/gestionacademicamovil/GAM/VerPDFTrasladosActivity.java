@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
 import android.view.Menu;
 import android.widget.Toast;
 
@@ -17,12 +18,14 @@ public class VerPDFTrasladosActivity extends Activity
 
 	private Bundle bundle=null;
     private String nomfich;
+    private Resources mResources;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
-		bundle=getIntent().getExtras();		
+		bundle=getIntent().getExtras();
+		mResources = getResources();
 		loadPDF();
 				
 	}	
@@ -49,7 +52,7 @@ public class VerPDFTrasladosActivity extends Activity
 		} 
 		else 
 		{
-			Toast toast = Toast.makeText(getApplicationContext(), "Descargar aplicación para poder visualizar el archivo", Toast.LENGTH_SHORT);
+			Toast toast = Toast.makeText(getApplicationContext(),mResources.getString(R.string.descargapp), Toast.LENGTH_SHORT);
 			toast.show();
 			VerPDFTrasladosActivity.this.finish();
 		}

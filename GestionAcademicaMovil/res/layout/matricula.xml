@@ -12,7 +12,8 @@
     	android:layout_height="wrap_content"
 		android:stretchColumns="1"
 		android:orientation="horizontal"
-		android:background="#880015">
+		android:background="#880015"
+		android:padding="5dp">
 	        
     	<TextView
        		android:id="@+id/usuario"
@@ -43,7 +44,7 @@
       	 	android:textSize="16sp"
       	 	android:textColor="@color/black"
       	 	android:textStyle="bold"
-      	 	android:text="Alumno"/>
+      	 	android:text="@string/alumno"/>
     </LinearLayout>
     
     <!-- <LinearLayout 
@@ -79,8 +80,8 @@
       	 	android:textSize="12sp"
       	 	android:textColor="@color/black"
       	 	android:textStyle="bold"
-      	    android:minWidth="130dp"
-      	 	android:text="Documento"/>
+      	    android:minWidth="100dp"
+      	 	android:text="@string/documento"/>
    		 
    		 <TextView
    		    android:id="@+id/documento"
@@ -109,11 +110,11 @@
        		android:layout_width="wrap_content"
     		android:layout_height="wrap_content"
       	 	android:layout_marginLeft="10dp"
-      	 	android:minWidth="130dp"
+      	 	android:minWidth="100dp"
       	 	android:textSize="12sp"
       	 	android:textColor="@color/black"
       	 	android:textStyle="bold"
-      	 	android:text="Nombre"/>
+      	 	android:text="@string/asignombre"/>
    		 
    		 <TextView
    		    android:id="@+id/nombre"
@@ -142,11 +143,11 @@
        		android:layout_width="wrap_content"
     		android:layout_height="wrap_content"
       	 	android:layout_marginLeft="10dp"
-      	 	android:minWidth="130dp"
+      	 	android:minWidth="100dp"
       	 	android:textSize="12sp"
       	 	android:textColor="@color/black"
       	 	android:textStyle="bold"
-      	 	android:text="Apellidos"/>
+      	 	android:text="@string/apellidos"/>
    		 
    		 <TextView
    		    android:id="@+id/apellidos"
@@ -175,20 +176,30 @@
        		android:layout_width="wrap_content"
     		android:layout_height="wrap_content"
       	 	android:layout_marginLeft="10dp"
-      	 	android:minWidth="130dp"
+      	 	android:minWidth="100dp"
       	 	android:textSize="12sp"
       	 	android:textColor="@color/black"
       	 	android:textStyle="bold"
-      	 	android:text="Telefono"/>
+      	 	android:text="@string/telefono"/>
    		 
    		 <TextView
    		    android:id="@+id/telefono"
        		android:layout_width="wrap_content"
     		android:layout_height="wrap_content"
       	 	android:layout_marginLeft="10dp"
+      	 	android:minWidth="130dp"
       	 	android:textSize="12sp"
       	 	android:textColor="@color/black"
       	 	android:text="941363258"/>
+   		 
+   		 <ImageButton 
+   		      android:id="@+id/edit_tfno"
+   		      android:layout_width="25dp"
+    		  android:layout_height="25dp"
+    		  android:background="@drawable/icon_edit"
+    		  android:layout_marginLeft="10dp">
+   		 </ImageButton>
+   		 
     </LinearLayout>
     
       <LinearLayout 
@@ -209,20 +220,29 @@
        		android:layout_width="wrap_content"
     		android:layout_height="wrap_content"
       	 	android:layout_marginLeft="10dp"
-      	 	android:minWidth="130dp"
+      	 	android:minWidth="100dp"
       	 	android:textSize="12sp"
       	 	android:textColor="@color/black"
       	 	android:textStyle="bold"
-      	 	android:text="Email"/>
+      	 	android:text="@string/email"/>
    		 
    		 <TextView
    		    android:id="@+id/email"
        		android:layout_width="wrap_content"
     		android:layout_height="wrap_content"
       	 	android:layout_marginLeft="10dp"
+      	 	android:minWidth="130dp"
       	 	android:textSize="12sp"
       	 	android:textColor="@color/black"
       	 	android:text="pepito@alum.unirioja.com"/>
+   		 
+   		  <ImageButton 
+   		      android:id="@+id/edit_email"
+   		      android:layout_width="25dp"
+    		  android:layout_height="25dp"
+    		  android:background="@drawable/icon_edit"
+    		  android:layout_marginLeft="10dp">
+   		 </ImageButton>
     </LinearLayout>
     
      </LinearLayout>
@@ -241,7 +261,7 @@
       	 	android:textSize="16sp"
       	 	android:textColor="@color/black"
       	 	android:textStyle="bold"
-      	 	android:text="Matricula"/>
+      	 	android:text="@string/matricula"/>
     </LinearLayout>
     
     <!-- <LinearLayout 
@@ -300,11 +320,11 @@
        		android:layout_width="wrap_content"
     		android:layout_height="wrap_content"
       	 	android:layout_marginLeft="10dp"
-      	 	android:minWidth="130dp"
+      	 	android:minWidth="100dp"
       	 	android:textSize="12sp"
       	 	android:textColor="@color/black"
       	 	android:textStyle="bold"
-      	 	android:text="Curso academico"/>
+      	 	android:text="@string/curso"/>
    		 
    		 <TextView
    		    android:id="@+id/curso"
@@ -333,11 +353,11 @@
        		android:layout_width="wrap_content"
     		android:layout_height="wrap_content"
       	 	android:layout_marginLeft="10dp"
-      	 	android:minWidth="130dp"
+      	 	android:minWidth="100dp"
       	 	android:textSize="12sp"
       	 	android:textColor="@color/black"
       	 	android:textStyle="bold"
-      	 	android:text="Fecha matricula"/>
+      	 	android:text="@string/fecha"/>
    		 
    		 <TextView
    		    android:id="@+id/fecha_matricula"
@@ -366,11 +386,11 @@
        		android:layout_width="wrap_content"
     		android:layout_height="wrap_content"
       	 	android:layout_marginLeft="10dp"
-      	 	android:minWidth="130dp"
+      	 	android:minWidth="100dp"
       	 	android:textSize="12sp"
       	 	android:textColor="@color/black"
       	 	android:textStyle="bold"
-      	 	android:text="Forma de pago"/>
+      	 	android:text="@string/fpago"/>
    		 
    		 <TextView
    		    android:id="@+id/forma_pago"
@@ -400,11 +420,11 @@
        		android:layout_width="wrap_content"
     		android:layout_height="wrap_content"
       	 	android:layout_marginLeft="10dp"
-      	 	android:minWidth="130dp"
+      	 	android:minWidth="100dp"
       	 	android:textSize="12sp"
       	 	android:textColor="@color/black"
       	 	android:textStyle="bold"
-      	 	android:text="Importe"/>
+      	 	android:text="@string/importe"/>
    		 
    		 <TextView
    		    android:id="@+id/importe"

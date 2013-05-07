@@ -1,10 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">GAM</string>
+    <string name="app_name_largo">GAM Gestión académica móvil</string>
     
     <string name="user">Usuario</string>
     <string name="password">Contraseña: </string>
     <string name="remember_login">Recordar login</string>
 	<string name="invalid_user">Usuario invalido</string>
 	<string name="invalid_pass">Contraseña invalida</string>
+	<string name="cancel">Cancelar</string>
+	
+	<string name="informacion">Información</string>
+	<string name="comprobacion">Compruebe su conexión a Internet</string>
+	<string name="errorlogin">Error: Nombre de usuario o password incorrectos</string>
+	<string name="carga">Cargando Notícias...</string>
+	<string name="textabout">Gestion academica móvil es una aplicacion desarrollada especialmente para estudiantes universitarios. Pretende facilitar el acceso a las notas, asignaturas, horarios de clases y de examenes e incluso al aula virtual. Una aplicacion muy facil de utilizar y con una interfaz agradable y sencilla</string>
+    <string name="desarrolladores">Aplicación desarrollada por Carolina Ponce Marín, Elena García Fernández y Oscar Mezquita Dominguez</string>
+	<string name="primercuat">Primer Cuatrimestre</string>
+	<string name="segundocuat">Segundo Cuatrimestre</string>
+	<string name="primero">Primero</string>
+	<string name="segundo">Segundo</string>
+	<string name="tercero">Tercero</string>
+	<string name="cuarto">Cuarto</string>
+	<string name="todas">Todas</string>	
+	<string name="nohaydatos">No hay datos</string>	
+	<string name="descargando">Descargando....</string>
+	<string name="descargado">Descargado!</string>
+	<string name="cargacompleta">Carga Completa</string>
+	<string name="archdescargado">Archivo descargado correctamente</string>
+	<string name="descargasig">Descargar Asignaturas de:</string>
+	<string name="descarganot">Descargar Notas de:</string>	
+	<string name="descargapdf">Descargar PDF</string>
+	<string name="descargapp">Descargar aplicación para poder visualizar el archivo</string>
+	<string name="tipo">Tipo</string>
+	<string name="estado">Estado</string>
+	<string name="asignombre">Nombre</string>
+	<string name="creditos">Créditos</string>
+	<string name="profesor">Profesor</string>
+	<string name="selmes">Seleccione el mes</string>
+	<string name="intro">Introduce el nuevo  </string>
+	<string name="enero">Enero</string>
+	<string name="mayo">Mayo</string>
+	<string name="junio">Junio</string>
+	<string name="nota">Nota</string>
+	<string name="definitiva">Definitiva</string>
+	<string name="revision">Revisión</string>	
+	<string name="universidad">Universidad</string>
+	<string name="ciudad">Ciudad</string>
+	<string name="pais">País</string>
+	<string name="salir">Salir</string>
+	<string name="seguro">¿Esta seguro?</string>
+	<string name="si">Sí</string>
+	<string name="no">No</string>
+	<string name="ajustes">Ajustes</string>
+	<string name="cambiarusuario">Cambiar Usuario</string>
+	<string name="about">About</string>
+	<string name="entrar">Entrar</string>
+	<string name="alumno">Alumno</string>
+	<string name="documento">Documento</string>
+	<string name="apellidos">Apellidos</string>
+	<string name="telefono">Teléfono</string>
+	<string name="email">E-mail</string>
+	<string name="curso">Curso Académico</string>
+	<string name="fecha">Fecha Matrícula</string>
+	<string name="fpago">Forma de pago</string>
+	<string name="importe">Importe</string>
+	<string name="desmatricula">Información del alumno y su última matrícula</string>
+	<string name="desasignatura">Asignaturas correspondientes a su grado</string>
+	<string name="deshorarios">Acceso a los horarios de cada curso</string>
+	<string name="desexamenes">Acceso a los exámenes de cada curso</string>
+	<string name="desnotas">Notas de cada cuatrimestre</string>
+	<string name="desconvalidaciones">Asignaturas convalidadas</string>
+	<string name="destraslados">Traslados de universidad</string>
+	<string name="desbecas">Resumen de becas</string>
+	<string name="desvirtual">Acceso directo al aula virtual</string>
+	
+	<string name="notificaciones">Notificaciones</string>
+	<string name="vibrar">Vibración</string>
+	<string name="sonido">Sonido</string>
+	<string name="app">Aplicación</string>
+	<string name="aabout">Sobre</string>
+	<string name="infabout">Información sobre la aplicación</string>
+	<string name="actDesV">Activar/desactivar vibracio</string>
+	<string name="actDesS">Activar/desactivar sonido</string>
+	
+	<string name="ginf">Grado en Ingeniería Informática</string>
+	<string name="gagr">Grado en Ingeniería agricola</string>
+	<string name="gmat">Grado en matemáticas</string>
+	
+	<string name="matricula">Matrícula</string>
+	<string name="asignaturas">Asignaturas</string>
+	<string name="asignatura">Asignatura</string>
+	<string name="horarios">Horarios</string>
+	<string name="examenes">Exámenes</string>
+	<string name="notas">Notas</string>
+	<string name="convalidaciones">Convalidaciones</string>
+	<string name="traslados">Traslados</string>
+	<string name="becas">Becas</string>
+	<string name="aula">Aula Virtual</string>
+	
+	 <!-- <string-array name="todo">
+        <item>Matricula</item>
+        <item>Asignaturas</item>
+        <item>Horarios</item>
+        <item>Exámenes</item>
+        <item>Notas</item>
+        <item>Convalidaciones</item>
+        <item>Traslados</item>
+        <item>Becas</item>
+        <item>Aula Virtual</item>
+    </string-array> -->
 </resources>

@@ -131,7 +131,7 @@
             android:layout_width="wrap_content"
             android:minWidth="70dp"
             android:minHeight="20dp"
-            android:text="Entrar" 
+            android:text="@string/entrar" 
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="12sp"

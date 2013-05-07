@@ -33,9 +33,8 @@ import android.widget.Toast;
 
 public class ListaActivity extends Activity {
 	
-	private ListView list1,list2,list3,list4;
+	private ListView list1;
 	private TextView usuario;
-	private ArrayAdapter adapter1,adapter2,adapter3,adapter4;
 	private Dialog dialog;
 	private myAdapter myAdapter;
 	private static final String googleDocsUrl = "http://docs.google.com/viewer?url=";
@@ -76,15 +75,15 @@ public class ListaActivity extends Activity {
     
     public void anadirMenu()
     {
-    	MenuPpal m1=new MenuPpal("Matricula","Informacion del alumno y su ultima matricula");
-    	MenuPpal m2=new MenuPpal("Asignaturas","Asignaturas correspondientes a un grado");
-    	MenuPpal m3=new MenuPpal("Horarios","Acceso a los horarios e cada curso");
-    	MenuPpal m4=new MenuPpal("Examenes","Acceso a los exmenes de cada curso");
-    	MenuPpal m5=new MenuPpal("Notas","Notas de cada cuatrimestre");
-    	MenuPpal m6=new MenuPpal("Convalidaciones","Asignaturas convalidadas");
-    	MenuPpal m7=new MenuPpal("Traslados","Traslados de universidad");
-    	MenuPpal m8=new MenuPpal("Becas","Resumen de becas");
-    	MenuPpal m9=new MenuPpal("Aula virtual","Acceso directo al aula virtual");
+    	MenuPpal m1=new MenuPpal(mResources.getString(R.string.matricula),mResources.getString(R.string.desmatricula));
+    	MenuPpal m2=new MenuPpal(mResources.getString(R.string.asignaturas),mResources.getString(R.string.desasignatura));
+    	MenuPpal m3=new MenuPpal(mResources.getString(R.string.horarios),mResources.getString(R.string.deshorarios));
+    	MenuPpal m4=new MenuPpal(mResources.getString(R.string.examenes),mResources.getString(R.string.desexamenes));
+    	MenuPpal m5=new MenuPpal(mResources.getString(R.string.notas),mResources.getString(R.string.desnotas));
+    	MenuPpal m6=new MenuPpal(mResources.getString(R.string.convalidaciones),mResources.getString(R.string.desconvalidaciones));
+    	MenuPpal m7=new MenuPpal(mResources.getString(R.string.traslados),mResources.getString(R.string.destraslados));
+    	MenuPpal m8=new MenuPpal(mResources.getString(R.string.becas),mResources.getString(R.string.desbecas));
+    	MenuPpal m9=new MenuPpal(mResources.getString(R.string.aula),mResources.getString(R.string.desvirtual));
     	
     	datos.add(m1);
     	datos.add(m2);
@@ -209,14 +208,14 @@ public class ListaActivity extends Activity {
     			
             	new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Salir")
-                .setMessage("¿Esta seguro?")
-                .setPositiveButton("si", new DialogInterface.OnClickListener() {
+                .setTitle(mResources.getString(R.string.salir))
+                .setMessage(mResources.getString(R.string.seguro))
+                .setPositiveButton(mResources.getString(R.string.si), new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                     finish();
                              }
                 })
-                .setNegativeButton("no", null)
+                .setNegativeButton(mResources.getString(R.string.no), null)
                 .show();
 				
                 return true;
@@ -225,12 +224,12 @@ public class ListaActivity extends Activity {
         }
     }
   	
-    private void crearDialogoSeleccionGrado()
+    /*private void crearDialogoSeleccionGrado()
     {
-    	final CharSequence[] items = {"Grado en Ingeniería agricola","Grado en Ingeniería Informática","Grado en Matematicas"};
+    	final CharSequence[] items = {mResources.getString(R.string.gagr),mResources.getString(R.string.ginf),mResources.getString(R.string.gmat)};
     	 
     	AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    	builder.setTitle("Seleccione una titulacion");
+    	builder.setTitle(mResources.getString(R.string.));
     	builder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
     	    public void onClick(DialogInterface dialog, int item) {
     	       // Toast toast = Toast.makeText(getApplicationContext(), "Has elegido la opcion: " + items[item] , Toast.LENGTH_SHORT);
@@ -261,14 +260,14 @@ public class ListaActivity extends Activity {
     	});
     	AlertDialog alert = builder.create();
     	alert.show();
-    }
+    }*/
     
     private void crearDialogoSeleccionMes()
     {
-    	final CharSequence[] items = {"Enero","Mayo","Junio"};
+    	final CharSequence[] items = {mResources.getString(R.string.enero),mResources.getString(R.string.mayo),mResources.getString(R.string.junio)};
     	 
     	AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    	builder.setTitle("Seleccione el mes");
+    	builder.setTitle(mResources.getString(R.string.selmes));
     	builder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
     	    public void onClick(DialogInterface dialog, int item) {
     	       // Toast toast = Toast.makeText(getApplicationContext(), "Has elegido la opcion: " + items[item] , Toast.LENGTH_SHORT);
@@ -278,7 +277,7 @@ public class ListaActivity extends Activity {
     	        
     	        if(item==0)
         		{
-    	        	if(grado.equals("Grado en Ingeniería Informática"))
+    	        	if(grado.equals(mResources.getString(R.string.ginf)))
     	        	{
     	        	
     	        	   i.setAction(android.content.Intent.ACTION_VIEW);
@@ -287,7 +286,7 @@ public class ListaActivity extends Activity {
     	        		
     	        	  //i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_enero_801.pdf"));
     	        	}
-		    		else if(grado.equals("Grado en Ingeniería agricola"))
+		    		else if(grado.equals(mResources.getString(R.string.gagr)))
 		    		{
 		    			i.setAction(android.content.Intent.ACTION_VIEW);
 			    	    String url="http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_enero_802.pdf";
@@ -308,7 +307,7 @@ public class ListaActivity extends Activity {
         		}
         		else if(item==1)
         		{
-        			if(grado.equals("Grado en Ingeniería Informática"))
+        			if(grado.equals(mResources.getString(R.string.ginf)))
         			{
         				i.setAction(android.content.Intent.ACTION_VIEW);
 			    	    String url="http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_mayo_801.pdf";
@@ -316,7 +315,7 @@ public class ListaActivity extends Activity {
 			    		
         				//i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_mayo_801.pdf"));
         			}
- 		    	   else if(grado.equals("Grado en Ingeniería agricola"))
+ 		    	   else if(grado.equals(mResources.getString(R.string.gagr)))
  		    	   {
  		    		   i.setAction(android.content.Intent.ACTION_VIEW);
 			    	   String url="http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_mayo_802.pdf";
@@ -338,7 +337,7 @@ public class ListaActivity extends Activity {
         		else
         		{
         			
-        			if(grado.equals("Grado en Ingeniería Informática"))
+        			if(grado.equals(mResources.getString(R.string.ginf)))
         			{
         			   i.setAction(android.content.Intent.ACTION_VIEW);
   			    	   String url="http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_junio_801.pdf";
@@ -346,7 +345,7 @@ public class ListaActivity extends Activity {
         				
   			    	   //i = new Intent("android.intent.action.VIEW", Uri.parse("http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_junio_801.pdf"));
         			}
- 		    	    else if(grado.equals("Grado en Ingeniería agricola"))
+ 		    	    else if(grado.equals(mResources.getString(R.string.gagr)))
  		    	    {
  		    	       i.setAction(android.content.Intent.ACTION_VIEW);
    			    	   String url="http://www.unirioja.es/facultades_escuelas/fceai/examenes/2012-13_junio_802.pdf";
@@ -379,14 +378,14 @@ public class ListaActivity extends Activity {
 	{
   		new AlertDialog.Builder(this)
         .setIcon(android.R.drawable.ic_dialog_alert)
-        .setTitle("Salir")
-        .setMessage("¿Esta seguro?")
-        .setPositiveButton("si", new DialogInterface.OnClickListener() {
+        .setTitle(mResources.getString(R.string.salir))
+        .setMessage(mResources.getString(R.string.seguro))
+        .setPositiveButton(mResources.getString(R.string.si), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                             finish();
                      }
         })
-        .setNegativeButton("no", null)
+        .setNegativeButton(mResources.getString(R.string.no), null)
         .show();
 	}
 }

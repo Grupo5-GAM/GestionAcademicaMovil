@@ -14,41 +14,41 @@
 		android:paddingTop="10dp" 
 		android:background="@color/white">
 		<TextView
-			android:layout_width="wrap_content"
+			android:layout_width="70dip"
 			android:layout_height="wrap_content"
-			android:text="Asignatura"
-			android:textSize="12dip"
+			android:text="@string/asignatura"
+			android:textSize="10sp"
 			android:textStyle="bold"
 			android:textColor="@color/black" />
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="Creditos"
-			android:textSize="12dip"
+			android:text="@string/creditos"
+			android:textSize="10sp"
 			android:textStyle="bold"
 			android:textColor="@color/black"
 			android:paddingLeft="40dp" />
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="Nota"
-			android:textSize="12dip"
+			android:text="@string/nota"
+			android:textSize="10sp"
 			android:textStyle="bold"
 			android:textColor="@color/black" 
 			android:paddingLeft="10dp"/>
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="Definitiva"
-			android:textSize="12dip"
+			android:text="@string/definitiva"
+			android:textSize="10sp"
 			android:textStyle="bold"
 			android:textColor="@color/black" 
 			android:paddingLeft="10dp"/>
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="Revision"
-			android:textSize="12dip"
+			android:text="@string/revision"
+			android:textSize="10sp"
 			android:textStyle="bold"
 			android:textColor="@color/black" 
 			android:paddingLeft="10dp"/>
@@ -92,7 +92,7 @@
             android:layout_width="wrap_content"
             android:minWidth="70dp"
             android:minHeight="20dp"
-            android:text="Descargar PDF" 
+            android:text="@string/descargapdf"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="12sp"

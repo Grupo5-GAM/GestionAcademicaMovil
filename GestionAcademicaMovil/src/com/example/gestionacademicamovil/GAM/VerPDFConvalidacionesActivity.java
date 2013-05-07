@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
 import android.view.Menu;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ public class VerPDFConvalidacionesActivity extends Activity
 
 	    private Bundle bundle=null;
 	    private String nomfich;
+	    private Resources mResources;
 		
 		@Override
 		protected void onCreate(Bundle savedInstanceState) 
@@ -24,6 +26,7 @@ public class VerPDFConvalidacionesActivity extends Activity
 			super.onCreate(savedInstanceState);
 			bundle=getIntent().getExtras();
 			setContentView(R.layout.activity_ver_pdf);
+			 mResources = getResources();
 			loadPDF();
 					
 		}	
@@ -50,7 +53,7 @@ public class VerPDFConvalidacionesActivity extends Activity
 			} 
 			else 
 			{
-				Toast toast = Toast.makeText(getApplicationContext(), "Descargar aplicación para poder visualizar el archivo", Toast.LENGTH_SHORT);
+				Toast toast = Toast.makeText(getApplicationContext(), mResources.getString(R.string.descargapp), Toast.LENGTH_SHORT);
 				toast.show();
 				VerPDFConvalidacionesActivity.this.finish();
 			}

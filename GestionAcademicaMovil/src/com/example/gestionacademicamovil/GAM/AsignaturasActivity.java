@@ -65,7 +65,7 @@ public class AsignaturasActivity extends TabActivity
     {
 	      Intent intent = new Intent().setClass(this, AsignaturasActivity1.class);
 	      TabSpec spec = mTabHost.newTabSpec("Tab1");
-	      spec.setIndicator("Primer cuatrimentre");
+	      spec.setIndicator(mResources.getString(R.string.primercuat));
 	      spec.setContent(intent);
 	      mTabHost.addTab(spec);
 	}
@@ -73,7 +73,7 @@ public class AsignaturasActivity extends TabActivity
 	{
 	      Intent intent = new Intent(this, AsignaturasActivity2.class);
 	      TabSpec spec = mTabHost.newTabSpec("Tab2");
-	      spec.setIndicator("Segundo cuatrimestre");
+	      spec.setIndicator(mResources.getString(R.string.segundocuat));
 	      spec.setContent(intent);
 	      mTabHost.addTab(spec);
 	}

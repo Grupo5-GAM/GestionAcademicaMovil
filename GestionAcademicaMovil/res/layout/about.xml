@@ -21,7 +21,7 @@
       	 	android:layout_marginLeft="10dp"
       	 	android:textSize="16sp"
       	 	android:textColor="@color/white"
-      	 	android:text="GAM Gestion Academica Movil"
+      	 	android:text="@string/app_name_largo"
       	 	android:textStyle="bold"/>"
 	</LinearLayout>
 	

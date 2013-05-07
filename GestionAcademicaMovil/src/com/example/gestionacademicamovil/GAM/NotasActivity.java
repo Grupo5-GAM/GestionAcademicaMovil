@@ -48,7 +48,7 @@ public class NotasActivity extends TabActivity
     {
 	      Intent intent = new Intent().setClass(this, Primero.class);
 	      TabSpec spec = mTabHost.newTabSpec("Tab1");
-	      spec.setIndicator("Primer cuatrimentre");
+	      spec.setIndicator(mResources.getString(R.string.primercuat));
 	      spec.setContent(intent);
 	      mTabHost.addTab(spec);
 	}
@@ -56,7 +56,7 @@ public class NotasActivity extends TabActivity
 	{
 	      Intent intent = new Intent(this, Segundo.class);
 	      TabSpec spec = mTabHost.newTabSpec("Tab2");
-	      spec.setIndicator("Segundo cuatrimestre");
+	      spec.setIndicator(mResources.getString(R.string.segundocuat));
 	      spec.setContent(intent);
 	      mTabHost.addTab(spec);
 	}

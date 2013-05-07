@@ -1,10 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">GAM</string>
+    <string name="app_name_largo">GAM Gestión Académica Móvil</string>
     
     <string name="user">User</string>
-    <string name="password">Passwrd: </string>
+    <string name="password">Password: </string>
     <string name="remember_login">Remenber login credentials</string>
 	<string name="invalid_user">Invalid User</string>
 	<string name="invalid_pass">Invalid password</string>
+	<string name="cancel">Cancel</string>
+	
+	<string name="informacion">Information</string>
+	<string name="comprobacion">Check your Internet connection</string>
+	<string name="errorlogin">Error: Username or password incorrect</string>
+	<string name="carga">Loading News...</string>
+	<string name="textabout">Academic Management Mobile is an application developed especially for college students. It aims to facilitate access to notes, assignments, class schedules and exams and even virtual classroom. A very easy to use application with a friendly and simple interface</string>
+    <string name="desarrolladores">Application developed by Carolina Ponce Marín, Elena García Fernández and Oscar Mezquita Dominguez</string>
+	<string name="primercuat">First Semester</string>
+	<string name="segundocuat">Second Semester</string>
+	<string name="primero">First</string>
+	<string name="segundo">Second</string>
+	<string name="tercero">Third</string>
+	<string name="cuarto">Fourth</string>	
+	<string name="todas">All</string>
+	<string name="nohaydatos">No data</string>		
+	<string name="descargando">Downloading....</string>
+	<string name="descargado">Downloaded!</string>
+	<string name="cargacompleta">Completed Load</string>
+	<string name="archdescargado">File successfully downloaded</string>
+	<string name="descargasig">Download Subjects:</string>	
+	<string name="descarganot">Download Scores:</string>	
+	<string name="descargapdf">Download PDF</string>
+    <string name="descargapp">Download an application to view the file</string>
+	<string name="tipo">Type</string>
+	<string name="estado">State</string>
+	<string name="asignombre">Name</string>
+	<string name="creditos">Credits</string>
+	<string name="profesor">Teacher</string>
+	<string name="selmes">Choose month</string>
+	<string name="intro">Add new  </string>
+	<string name="enero">January</string>
+	<string name="mayo">May</string>
+	<string name="junio">June</string>
+	<string name="nota">Score</string>
+	<string name="definitiva">Definitive</string>
+	<string name="revision">Review</string>	
+	<string name="universidad">University</string>
+	<string name="ciudad">City</string>
+	<string name="pais">Country</string>
+	<string name="salir">Salir</string>
+	<string name="seguro">Are you sure?</string>
+	<string name="si">Yes</string>
+	<string name="no">No</string>
+	<string name="ajustes">Settings</string>
+	<string name="cambiarusuario">Change User</string>
+	<string name="about">About</string>
+	<string name="entrar">Enter</string>
+	<string name="alumno">Student</string>
+	<string name="documento">Document</string>
+	<string name="apellidos">Surnames</string>
+	<string name="telefono">Phone</string>
+	<string name="email">E-mail</string>
+	<string name="curso">Academic course</string>
+	<string name="fecha">Enrollment Date</string>
+	<string name="fpago">Payment</string>
+	<string name="importe">Amount</string>
+	<string name="desmatricula">Information last enrollment and student</string>
+	<string name="desasignatura">Subjects related to your course</string>
+	<string name="deshorarios">Access schedules of each course</string>
+	<string name="desexamenes">Access exams of each course</string>
+	<string name="desnotas">Score of each semester</string>
+	<string name="desconvalidaciones">Validated subjects</string>
+	<string name="destraslados">University transfers</string>
+	<string name="desbecas">Scholarships summary</string>
+	<string name="desvirtual">Direct access to the virtual classroom</string>
+	
+	<string name="notificaciones">Notifications</string>
+	<string name="vibrar">Vibration</string>
+	<string name="sonido">Sound</string>
+	<string name="app">Application</string>
+	<string name="aabout">About</string>
+	<string name="infabout">Information about application</string>
+	<string name="actDesV">Activate/desactivate vibration</string>
+	<string name="actDesS">Activarte/desactivarte sound</string>
+	
+	<string name="ginf">Grado en Ingeniería Informática</string>
+	<string name="gagr">Grado en Ingeniería agricola</string>
+	<string name="gmat">Grado en matemáticas</string>
+	
+	<string name="matricula">Enrollment</string>
+	<string name="asignaturas">Subjects</string>
+	<string name="asignatura">Subject</string>
+	<string name="horarios">Schedules</string>
+	<string name="examenes">Exams</string>
+	<string name="notas">Score</string>
+	<string name="convalidaciones">Validations</string>
+	<string name="traslados">Transfers</string>
+	<string name="becas">Scholarships</string>
+	<string name="aula">Virtual Classroom</string>
+	
+	 <string-array name="todo">
+        <item>Last Enrollment</item>
+        <item>Subjects</item>
+        <item>Schedules</item>
+        <item>Exams</item>
+        <item>Score</item>
+        <item>Validations</item>
+        <item>Transfers</item>
+        <item>Grant</item>
+        <item>Virtual Classroom</item>
+    </string-array>
+	
 </resources>

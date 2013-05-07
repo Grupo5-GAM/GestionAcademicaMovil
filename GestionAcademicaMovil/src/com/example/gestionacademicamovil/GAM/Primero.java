@@ -16,6 +16,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -39,12 +40,15 @@ public class Primero extends Activity {
 	private TextView usuario,texto;
 	private  Bundle bundle;
 	private Button btDescargar;
+	private Resources mResources;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) 
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cuatrimestres);
+        
+        mResources = getResources();
         
         bundle=getIntent().getExtras();
         grado=GAMApplication.getInstance().getPreferencesManager().getGrado();
@@ -72,12 +76,12 @@ public class Primero extends Activity {
     private void seleccion()
     {
     	
-       final CharSequence[] items = {"Primero", "Todas"};
+    	final CharSequence[] items = {mResources.getString(R.string.primero), mResources.getString(R.string.todas)};
        
     	 
        AlertDialog.Builder builder = new AlertDialog.Builder(this);
     	 
-            builder.setTitle("Descargar notas de:");
+       builder.setTitle(mResources.getString(R.string.descarganot));
     	    builder.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() 
     	    {
     	        public void onClick(DialogInterface dialog, int item) 
@@ -85,11 +89,11 @@ public class Primero extends Activity {
     	        	Intent i = new Intent();
     	        	if(item==0)
             		{
-            			descargarPDF("Primero");
+    	        		descargarPDF(mResources.getString(R.string.primero));
             		}
     	        	else
     	        	{
-    	        		descargarPDF("Todas");
+    	        		descargarPDF(mResources.getString(R.string.todas));
     	        	}
     	        	
     	        	dialog.cancel();
@@ -102,7 +106,7 @@ public class Primero extends Activity {
     public void descargarPDF(String opcion)
     {
     	 CrearPDF crearpdf;
-    	 if(opcion.equals("Primero"))
+    	 if(opcion.equals(mResources.getString(R.string.primero)))
     	 {
     	   crearpdf= new CrearPDF(datosMostrar);	
     	 }
@@ -110,18 +114,18 @@ public class Primero extends Activity {
     	 {
     	   crearpdf= new CrearPDF(datos);		
     	 }
-    	 GAMApplication.getInstance().showToast("Descargando...");
+    	 GAMApplication.getInstance().showToast(mResources.getString(R.string.descargando));
 		 crearpdf.descargarPDFNotas();
 		 String ns = Context.NOTIFICATION_SERVICE;
 		 NotificationManager notManager =  (NotificationManager) getSystemService(ns);
 		 int icono = android.R.drawable.stat_sys_download;		 
 		 
-		 CharSequence textoEstado = "Descargado!";
+		 CharSequence textoEstado = mResources.getString(R.string.descargado);
 		 long hora = System.currentTimeMillis();				  
 		 Notification notif =  new Notification(icono, textoEstado, hora);
 		 Context contexto = getApplicationContext();
-		 CharSequence titulo = "Carga completa";
-		 CharSequence descripcion = "Archivo descargado correctamente";
+		 CharSequence titulo = mResources.getString(R.string.cargacompleta);
+		 CharSequence descripcion = mResources.getString(R.string.archdescargado);
 		  
 		 Intent notIntent = new Intent(contexto, VerPDFNotasActivity.class);
 		 notIntent.putExtra("fichero","Notas.pdf");
@@ -164,13 +168,13 @@ public class Primero extends Activity {
     	Nota m1=new Nota(1,"Estructuras algebraicas","Grado en Matematicas",6,0,"","");
     	Nota m2=new Nota(1,"Modelos de regresión","Grado en Matematicas",6,0,"","");
     	Nota m3=new Nota(1,"Métodos numéricos","Grado en Matematicas",6,6,"","");
-    	Nota m4=new Nota(1,"Ecuaciones diferenciales","Grado en Matematicas",6,0,"","");
+    	Nota m4=new Nota(1,"Ecuaciones diferenciales","Grado en Matematicas",6,3.5,"No","desp 301 24/06/2013");
     	Nota m5=new Nota(1,"Modelización y optimización I","Grado en Matematicas",6,0,"","");
     	Nota m6=new Nota(2,"Teoria de Galois","Grado en Matematicas",6,0,"","");
     	Nota m7=new Nota(2,"Modelización y optimización II","Grado en Matematicas",6,0,"","");
     	Nota m8=new Nota(2,"Métodos numéricos en ecuaciones diferenciales","Grado en Matematicas",6,0,"","");
     	Nota m9=new Nota(2,"Topología general","Grado en Matematicas",6,0,"","");
-    	Nota m10=new Nota(2,"Análisis complejo","Grado en Ingeniería Informática",6,0,"","");
+    	Nota m10=new Nota(2,"Análisis complejo","Grado en Matematicas",6,0,"","");
     	
     	
         datos.add(n1);

@@ -13,6 +13,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -35,6 +36,8 @@ private ListView list;
 	private miAdapter adapter;
 	private Button btDescargar;
 	
+	private Resources mResources;
+	
 	private ArrayList<Convalidacion> datos=new ArrayList<Convalidacion>();
 	
 	@Override
@@ -43,6 +46,8 @@ private ListView list;
 		super.onCreate(savedInstanceState);
 		 requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.convalidaciones);
+        
+        mResources = getResources();
 		
         bundle=getIntent().getExtras();
         crearDatos();
@@ -56,7 +61,7 @@ private ListView list;
 	     btDescargar=(Button)findViewById(R.id.btDescargar);
 	     if(datos.size()==0)
 	     {
-	    	 GAMApplication.getInstance().showToast("No hay datos");	//Colocar un dialogalert		 
+	    	 GAMApplication.getInstance().showToast(mResources.getString(R.string.nohaydatos));	//Colocar un dialogalert		 
 			 btDescargar.setEnabled(false);
 			 ConvalidacionesActivity.this.finish();
 	     }
@@ -64,18 +69,18 @@ private ListView list;
 			  public void onClick(View view)
 			  {
 				 CrearPDF crearpdf= new CrearPDF(datos);				 
-				 GAMApplication.getInstance().showToast("Descargando...");
+				 GAMApplication.getInstance().showToast(mResources.getString(R.string.descargando));
 				 crearpdf.descargarPDFConvalidaciones();
 				 String ns = Context.NOTIFICATION_SERVICE;
 				 NotificationManager notManager =  (NotificationManager) getSystemService(ns);
 				 int icono = android.R.drawable.stat_sys_download;		 
 				 
-				 CharSequence textoEstado = "Descargado!";
+				 CharSequence textoEstado = mResources.getString(R.string.descargado);
 				 long hora = System.currentTimeMillis();				  
 				 Notification notif =  new Notification(icono, textoEstado, hora);
 				 Context contexto = getApplicationContext();
-				 CharSequence titulo = "Carga completa";
-				 CharSequence descripcion = "Archivo descargado correctamente";
+				 CharSequence titulo = mResources.getString(R.string.cargacompleta);
+				 CharSequence descripcion = mResources.getString(R.string.archdescargado);
 				  
 				 Intent notIntent = new Intent(contexto, VerPDFConvalidacionesActivity.class);
 				 notIntent.putExtra("fichero","Convalidaciones.pdf");

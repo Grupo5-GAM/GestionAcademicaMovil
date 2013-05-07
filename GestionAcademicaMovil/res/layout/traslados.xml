@@ -32,30 +32,33 @@
 		android:background="@color/white">
         <TextView
             android:id="@+id/universidad"
-            android:layout_width="wrap_content"
+            android:layout_width="100dip"
             android:layout_height="wrap_content"
-            android:text="Universidad"
+            android:text="@string/universidad"
             android:textSize="12sp"
             android:textStyle="bold"
-            android:minWidth="60dp" />
+            android:minWidth="60dp"
+            android:textColor="@color/black" />
         <TextView
             android:id="@+id/ciudad"
-            android:layout_width="wrap_content"
+            android:layout_width="100dip"
             android:layout_height="wrap_content"
-            android:text="Ciudad"            
+            android:text="@string/ciudad"           
             android:textSize="12sp" 
-            android:paddingLeft="60dp"
+            android:paddingLeft="20dp"
             android:textStyle="bold"
-            android:minWidth="50dp" />
+            android:minWidth="50dp"
+            android:textColor="@color/black" />
         <TextView
             android:id="@+id/pais"
-            android:layout_width="wrap_content"
+            android:layout_width="100dip"
             android:layout_height="wrap_content"
-            android:text="País"            
+            android:text="@string/pais"           
             android:textSize="12sp" 
-            android:paddingLeft="30dp"
+            android:paddingLeft="20dp"
             android:textStyle="bold"
-            android:minWidth="50dp" />
+            android:minWidth="50dp" 
+            android:textColor="@color/black"/>
     </LinearLayout>
    <LinearLayout 
        android:orientation="horizontal"
@@ -95,7 +98,7 @@
             android:layout_width="wrap_content"
             android:minWidth="70dp"
             android:minHeight="20dp"
-            android:text="Descargar PDF" 
+            android:text="@string/descargapdf" 
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="12sp"

@@ -176,8 +176,8 @@ public class Login extends Activity{
 	{
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		 
-	    builder.setTitle("Informacion");
-	    builder.setMessage("Compruebe su conexion a Internet");
+	    builder.setTitle(mResources.getString(R.string.informacion));
+	    builder.setMessage(mResources.getString(R.string.comprobacion));
 	    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
             	dialog.cancel();
@@ -218,12 +218,7 @@ public class Login extends Activity{
     	   {
     		   err_login();
     	   }
-    	   
-    	   Intent i=new Intent(Login.this, ListaActivity.class);
-    	   Login.this.finish();
-    	   startActivity(i);
     	 
-    	   
         }else{
         //si detecto un error en la primera validacion vibrar y mostrar un Toast con un mensaje de error.
         	err_login();
@@ -236,7 +231,7 @@ public class Login extends Activity{
     {
     	if(GAMApplication.getInstance().getPreferencesManager().getVibracion())
     			vibrator.vibrate(200);
-    	GAMApplication.getInstance().showToast("Error:Nombre de usuario o password incorrectos");
+    	GAMApplication.getInstance().showToast(mResources.getString(R.string.errorlogin));
     }
   
     //validamos si no hay ningun campo en blanco
@@ -278,7 +273,7 @@ public class Login extends Activity{
 	    private void loadData()
 	    {
 	    	progressDialog = ProgressDialog.show(
-	    			Login.this,"","Cargando Notícias...",true);
+	    			Login.this,"",mResources.getString(R.string.carga),true);
 	    	
 	    	new Thread(new Runnable()
 	    	{

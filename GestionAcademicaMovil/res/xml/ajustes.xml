@@ -4,18 +4,18 @@
     android:title="main preferences">
  
  <PreferenceCategory
-   android:summary="Notificaciones"
-   android:title="Notificaciones" >
+   android:summary="@string/notificaciones"
+   android:title="@string/notificaciones" >
   <CheckBoxPreference
      android:key="cbVibracion"
-     android:summary="Activar/desactivar vibracion"
-     android:title="Vibrar"
+     android:summary="@string/actDesV"
+     android:title="@string/vibrar"
      android:defaultValue="true" />
   
   <CheckBoxPreference
      android:key="cbSonido"
-     android:summary="Activar/desactivar sonido"
-     android:title="Sonido"
+     android:summary="@string/actDesS"
+     android:title="@string/sonido"
      android:defaultValue="true" />
   
   <!--  <ListPreference
@@ -25,10 +25,10 @@
      android:title="Volumen" />-->
  </PreferenceCategory>
  <PreferenceCategory
-   android:summary="Aplicacion"
-   android:title="Aplicacion" >
-   <Preference android:title="About"
-  		android:summary="Information about this application" android:key="about" />
+   android:summary="@string/app"
+   android:title="@string/app" >
+   <Preference android:title="@string/aabout" 
+  		android:summary="@string/infabout"  android:key="about" />
   </PreferenceCategory>
  
 </PreferenceScreen>

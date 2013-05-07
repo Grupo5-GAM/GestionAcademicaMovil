@@ -15,11 +15,12 @@
 		android:background="@color/white">
 		<TextView
 			android:id="@+id/nombre"
-			android:layout_width="wrap_content"
+			android:layout_width="100dp"
 			android:layout_height="wrap_content"
 			android:text="Informatica movil"
 			android:textSize="10dip"
-			android:textColor="@color/black" />
+			android:textColor="@color/black"
+			android:singleLine="false" />
 		<TextView
 			android:id="@+id/creditos"
 			android:layout_width="wrap_content"
@@ -27,7 +28,7 @@
 			android:text="6"
 			android:textSize="10dip"
 			android:textColor="@color/black" 
-			android:paddingLeft="40dp"/>
+			android:paddingLeft="50dp"/>
 		<TextView
 			android:id="@+id/profesor"
 			android:layout_width="wrap_content"
@@ -35,7 +36,8 @@
 			android:text="Eloy mata"
 			android:textSize="10dip"
 			android:textColor="@color/black" 
-			android:paddingLeft="30dp"/>
+			android:paddingLeft="55dp"
+			android:singleLine="false"/>
 		
 		</LinearLayout>
     

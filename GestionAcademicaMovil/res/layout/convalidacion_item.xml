@@ -38,35 +38,39 @@
 		android:background="@color/white">
        <TextView 
            android:id="@+id/asignaturaAntigua"
-           android:layout_width="wrap_content"
+           android:layout_width="100dip"
            android:layout_height="wrap_content"
            android:text="Otro Texto"   
-           android:textSize="10dip"       
+           android:textSize="10dip"
+           android:singleLine="false"       
            android:textColor="@color/black"   />
        <TextView 
            android:id="@+id/creditos"
-           android:layout_width="wrap_content"
+           android:layout_width="80dip"
            android:layout_height="wrap_content"
            android:text="0"       
-           android:textSize="10dip"      
+           android:textSize="10dip"
+           android:singleLine="false"      
            android:paddingLeft="10dp"
             android:textColor="@color/black"  />
        <TextView 
            android:id="@+id/tipo"
-           android:layout_width="wrap_content"
+           android:layout_width="80dip"
            android:layout_height="wrap_content"
            android:text=""      
-           android:textSize="10dip"       
+           android:textSize="10dip"
+           android:singleLine="false"      
           android:paddingLeft="10dp"
            android:textColor="@color/black"  />
        <TextView 
            android:id="@+id/nota"
-           android:layout_width="wrap_content"
+           android:layout_width="70dip"
            android:layout_height="wrap_content"
            android:text="0" 
-           android:textSize="10dip"            
+           android:textSize="10dip" 
+           android:singleLine="false"           
            android:paddingLeft="10dp"
-            android:textColor="@color/black"  />
+           android:textColor="@color/black"  />
     </LinearLayout>
     
 

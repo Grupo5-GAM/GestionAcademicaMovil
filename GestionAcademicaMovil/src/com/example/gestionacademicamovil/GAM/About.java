@@ -3,6 +3,7 @@ package com.example.gestionacademicamovil.GAM;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.view.Menu;
 import android.widget.TextView;
 
@@ -10,21 +11,21 @@ public class About extends Activity {
 	
 	private TextView about,desarrolladores;
 	private  Bundle bundle;
+	
+	private Resources mResources;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about);
         
+        mResources = getResources();
+        
         about=(TextView)findViewById(R.id.about);
-        about.setText("Gestion academica movil es una aplicacion desarrollada especialmente" +
-        		"para estudiantes universitaios. Pretende facilitar el acceso a las notas,asignaturas" +
-        		",horarios de clases y de examenes e incluso al aula virtual. " +
-        		"Una aplicacion muy facil de utilizar y con una interfaz agradable y sencilla.");
+        about.setText(mResources.getString(R.string.textabout));
         
         desarrolladores=(TextView)findViewById(R.id.desarrolladores);
-        desarrolladores.setText("Aplicacion desarrollada por Carolina Ponce Marin, Elena García" +
-        		" Fernandez y Oscar Mezquita Dominguez");
+        desarrolladores.setText(mResources.getString(R.string.desarrolladores));
     }
 
     public void onBackPressed() 
